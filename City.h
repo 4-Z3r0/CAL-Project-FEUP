@@ -5,6 +5,7 @@ using namespace std;
 
 class City {
 private:
+
 	string name;
 public:
 	City(string name);

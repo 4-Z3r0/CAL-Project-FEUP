@@ -1,21 +1,28 @@
 #pragma once
+#include <set>
 #include <vector>
-#include <queue>
+#include <vector>
 #include <list>
 #include <limits>
 #include <cmath>
+#include <ostream>
+#include <iostream>
 #include "MutablePriorityQueue.h"
 #include "City.h"
 #include "Trip.h"
-using namespace std;
+#include "BT.h"
 
 template <class T> class Edge;
 template <class T> class Graph;
-template <class T> class Vertex;
+
+using namespace std;
 
 #define INF std::numeric_limits<double>::max()
 
 /************************* Vertex  **************************/
+
+template<typename T>
+ostream& operator<<(ostream& out, Graph<T>& graph);
 
 template <class T>
 class Vertex {
@@ -27,6 +34,7 @@ class Vertex {
 	int queueIndex = 0; 		// required by MutablePriorityQueue
 
 	bool processing = false;
+	bool tree = false;
 	void addEdge(Vertex<T> *dest, Trip w);
 
 public:
@@ -37,6 +45,9 @@ public:
 	Vertex *getPath() const;
 	friend class Graph<T>;
 	friend class MutablePriorityQueue<Vertex<T>>;
+	friend ostream& operator<< <>(ostream& out, Graph<T>& graph);
+
+
 };
 
 
@@ -82,6 +93,9 @@ public:
 	Edge(Vertex<T> *d, Trip w);
 	friend class Graph<T>;
 	friend class Vertex<T>;
+	friend ostream& operator<< <>(ostream& out, Graph<T>& graph);
+
+
 };
 
 template <class T>
@@ -103,13 +117,21 @@ public:
 
 	// Fp05 - single source
 	void showShortestPath(City &origin, City &dest);
-	Vertex<T> * Graph<T>::initSingleSource(const T &origin);
-	bool Graph<T>::relax(Vertex<T> *v, Vertex<T> *w, Trip weight);
+	Vertex<T> * initSingleSource(const T &origin);
+	bool relax(Vertex<T> *v, Vertex<T> *w, Trip weight);
 	void dijkstraShortestPath(const T &s);
 	void dijkstraShortestPathOld(const T &s);
 	void unweightedShortestPath(const T &s);
 	void bellmanFordShortestPath(const T &s);
 	vector<T> getPath(const T &origin, const T &dest) const;
+
+	T findClosestNotTree(const T &source, set<T> &cities);
+	BTCustom<T> makeMinTree(const T &source, set<T> cities);
+	vector<T> travellingSalesman(BTCustom<T> tree);
+
+
+	friend ostream& operator<< <>(ostream& out, Graph<T>& graph);
+
 
 	// Fp05 - all pairs
 	void floydWarshallShortestPath();
@@ -242,7 +264,8 @@ vector<T> Graph<T>::getPath(const T &origin, const T &dest) const {
 		res.push_back(v->info);
 	reverse(res.begin(), res.end());
 	return res;
-}
+}
+
 
 template<class T>
 void Graph<T>::unweightedShortestPath(const T &orig) {
@@ -267,4 +290,93 @@ vector<T> Graph<T>::getfloydWarshallPath(const T &orig, const T &dest) const {
 	vector<T> res;
 	// TODO
 	return res;
+}
+
+//returns the closest Vertex to source not included in the BT
+template <class T>
+T Graph<T>::findClosestNotTree(const T &source , set<T> &cities)
+{
+	Vertex<T> * v = findVertex(source);
+	Vertex<T> * minV = new Vertex<T>(source);
+	T minDest;
+	bool flag = false;
+	int min = -1;
+
+	for (auto it = v->adj.begin(); it != v->adj.end(); it++)
+	{
+		if (((min == -1) || (it->weight.getPrice() < min)) && (it->dest->tree == false) &&  cities.end() != cities.find(it->dest->info/*->name*/))
+		{
+			minDest = it->dest->info/*->name*/;
+			min = it->weight.getPrice();
+			minV = it->dest;
+			flag = true;
+		}
+	}
+	if(flag)
+		minV->tree = true;
+	cities.erase(minDest);
+	return minDest;
+}
+
+
+//Creates a minimum spanning tree
+//Based on Prim's algorithm
+//Possible alternatives Kruskal's and Boruvka's algorithms
+template <class T>
+BTCustom<T> Graph<T>::makeMinTree(const T &source, set<T> cities)
+{
+	BTCustom<T> B = BTCustom<T>(source);
+	vector<BTNodeCustom<T>* > q;
+	BTNodeCustom<T>* node = B.getRoot();
+	BTNodeCustom<T>* left;
+	BTNodeCustom<T>* right;
+	T info;
+	q.push_back(node);
+	while (!cities.empty())
+	{
+		node = q.at(0);
+		q.erase(q.begin());
+		
+		info = findClosestNotTree((*node).getInfo(), cities);
+		left = new BTNodeCustom<T>(info);
+		node->setNodeLeft(left);
+		q.push_back(left);
+
+		info = findClosestNotTree((*node).getInfo(), cities);
+		right = new BTNodeCustom<T>(info);
+		node->setNodeRight(right);
+		q.push_back(right);
+		
+	}
+	return B;
+}
+
+template<class T>
+vector<T> Graph<T>::travellingSalesman(BTCustom<T> tree)
+{
+	vector<T> order = {};
+	BTCPre<T> it = BTCPre<T>(tree);
+	while (!it.isAtEnd())
+	{
+		order.push_back(it.retrieve());
+		it.advance();
+	}
+	return order;
+}
+
+
+template<typename T>
+ostream& operator<< <>(ostream& out, Graph<T>& graph)
+{
+	Vertex<T>* v;
+	for (int i = 0; i < graph.getNumVertex(); i++)
+	{
+		v = graph.vertexSet.at(i);
+		cout << "VERTEX: " << v->info << endl;
+		for (int j = 0; j < v->adj.size(); j++)
+		{
+			cout << "edge to: " << v->adj.at(j).dest->info << "     price: " << v->adj.at(j).weight.getPrice() << endl;
+		}
+	}
+	return out;
 }

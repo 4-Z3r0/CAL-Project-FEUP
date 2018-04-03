@@ -1,5 +1,5 @@
 #include <iostream>
-#include<set>
+#include <set>
 #include "Graph.h"
 #include "City.h"
 #include "Trip.h"
@@ -11,7 +11,7 @@ using namespace std;
 
 int main() {
 
-	Graph<char> graph;
+	Graph<City> graph;
 	/*
 	City porto("Porto");
 	City madrid("Madrid");
@@ -123,10 +123,46 @@ int main() {
 	graph.showShortestPath(lisboa, helsiquia);
 
 	*/;
+
+
+	//Test Travelling Salesman with Chars
+	/*
 	set<char> cities = {'B', 'D', 'G', 'F'};
 	vector<char> result;
 	graph = makeCompleteGraph<char>(7);
 	cout << graph << endl << endl << endl << endl;
 	result = graph.travellingSalesman(graph.makeMinTree('A', cities));
 	printVec<char>(result);
+	*/
+
+	//Testing travelling Salesman with City
+	City porto("Porto");
+	City madrid("Madrid");
+	City lisboa("Lisboa");
+	City barcelona("Barcelona");
+	City londres("Londres");
+	vector<City> cities;
+	cities.push_back(porto);
+	cities.push_back(madrid);
+	cities.push_back(lisboa);
+	cities.push_back(barcelona);
+	cities.push_back(londres);
+	graph = makeCGraphFromVertices(cities);
+	cout << graph << endl << endl << endl << endl;
+	set<City> setCities = { madrid, lisboa, barcelona, londres };
+	cities = graph.travellingSalesman(graph.makeMinTree(porto, setCities));
+	printVec<City>(cities);
+
+
+
+	/*
+	City frankfurt("Frankfurt");
+	City oslo("Oslo");
+	City roma("Roma");
+	City kiev("Kiev");
+	City helsiquia("Helsinquia");
+	City monaco("Monaco");
+	*/
+
+
 }

@@ -21,11 +21,6 @@ template <class T> class Vertex;
 #define INF std::numeric_limits<double>::max()
 
 
-
-/*************************** Graph  **************************/
-
-
-
 /************************* Vertex  **************************/
 
 
@@ -34,7 +29,7 @@ template <class T>
 class Vertex {
 	T info;                // contents
 	vector<Edge<T> > adj;  // outgoing edges
-	bool visited;          // auxiliary field
+	bool visited = false;          // auxiliary field
 	double dist = 0;
 	Vertex<T> *path = NULL;
 	int queueIndex = 0; 		// required by MutablePriorityQueue
@@ -133,7 +128,7 @@ public:
 	vector<T> getPath(const T &origin, const T &dest) const;
 
 	T findClosestNotTree(const T &source, set<T> &cities);
-	BTCustom<T> makeMinTree(const T &source, set<T> cities);
+	BTCustom<T> makeMinTree(T &source, set<T> cities);
 	vector<T> travellingSalesman(BTCustom<T> tree);
 
 
@@ -302,20 +297,21 @@ vector<T> Graph<T>::getfloydWarshallPath(const T &orig, const T &dest) const {
 
 
 //returns the closest Vertex to source not included in the BT
+//WILL ONLY WORK WITH CITY
 template <class T>
 T Graph<T>::findClosestNotTree(const T &source , set<T> &cities)
 {
 	Vertex<T> * v = findVertex(source);
 	Vertex<T> * minV = new Vertex<T>(source);
-	T minDest;
+	T minDest("NULLCITY");
 	bool flag = false;
 	int min = -1;
 
 	for (auto it = v->adj.begin(); it != v->adj.end(); it++)
 	{
-		if (((min == -1) || (it->weight.getPrice() < min)) && (it->dest->tree == false) &&  cities.end() != cities.find(it->dest->info/*->name*/))
+		if (((min == -1) || (it->weight.getPrice() < min)) && (it->dest->tree == false) &&  cities.end() != cities.find(it->dest->info.getName()))
 		{
-			minDest = it->dest->info/*->name*/;
+			minDest = it->dest->info.getName();
 			min = it->weight.getPrice();
 			minV = it->dest;
 			flag = true;
@@ -332,14 +328,14 @@ T Graph<T>::findClosestNotTree(const T &source , set<T> &cities)
 //Based on Prim's algorithm
 //Possible alternatives Kruskal's and Boruvka's algorithms
 template <class T>
-BTCustom<T> Graph<T>::makeMinTree(const T &source, set<T> cities)
+BTCustom<T> Graph<T>::makeMinTree(T &source, set<T> cities)
 {
 	BTCustom<T> B = BTCustom<T>(source);
 	vector<BTNodeCustom<T>* > q;
 	BTNodeCustom<T>* node = B.getRoot();
 	BTNodeCustom<T>* left;
 	BTNodeCustom<T>* right;
-	T info;
+	T info("NULL_CITY");
 	q.push_back(node);
 	while (!cities.empty())
 	{
@@ -384,8 +380,9 @@ ostream& operator<< <>(ostream& out, Graph<T>& graph)
 		cout << "VERTEX: " << v->info << endl;
 		for (int j = 0; j < v->adj.size(); j++)
 		{
-			cout << "edge to: " << v->adj.at(j).dest->info << "     price: " << v->adj.at(j).weight.getPrice() << endl;
+			cout << "edge to: " << v->adj.at(j).dest->info.getName() << "     price: " << v->adj.at(j).weight.getPrice() << endl;
 		}
+		cout << endl << endl;
 	}
 	return out;
 }

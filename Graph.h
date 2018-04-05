@@ -370,6 +370,7 @@ vector<T> Graph<T>::travellingSalesman(BTCustom<T> tree)
 }
 
 
+
 template<typename T>
 ostream& operator<< <>(ostream& out, Graph<T>& graph)
 {

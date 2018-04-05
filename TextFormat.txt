@@ -1,0 +1,29 @@
+<Lista de destinos um por linha terminada por "!">
+A
+B
+C
+D
+E
+F
+G
+H
+I
+(...)
+!
+A(Destino1) : <Numero de conexoes>
+Conexao1(B) - <Preço de viagem>
+Conexao2(D) - <Preço de viagem>
+Conexao3(E) - <Preço de viagem>
+Conexao4(F) - <Preço de viagem>
+<> -->Separação
+B(Destino2) : <Numero de conexoes>
+Conexao1(...) - <Preço de viagem>
+Conexao2(...) - <Preço de viagem>
+Conexao3(...) - <Preço de viagem>
+Conexao4(...) - <Preço de viagem>
+Conexao5(...) - <Preço de viagem>
+Conexao6(...) - <Preço de viagem>
+<>
+(...)
+
+<Close> -> Fecho do ficheiro

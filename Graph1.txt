@@ -1,0 +1,93 @@
+Porto
+Lisboa
+Madrid
+Barcelona
+Londres
+Frankfurt
+Oslo
+Helsinki
+Roma
+Monaco
+Kiev
+!
+Porto : 3
+Lisboa - 500
+Madrid - 700
+Barcelona - 800
+<>
+Lisboa : 4
+Porto - 400
+Madrid - 400
+Barcelona - 600
+Londres - 900
+<>
+Madrid : 6
+Porto - 600
+Lisboa - 500
+Barcelona - 200
+Londres - 800
+Roma - 600
+Frankfurt - 550
+<>
+Barcelona : 7
+Porto - 750
+Lisboa - 650
+Madrid - 250
+Londres - 400
+Roma - 550
+Frankfurt - 600
+Oslo - 800
+<>
+Londres : 7
+Lisboa - 1000
+Madrid - 700
+Barcelona - 650
+Oslo - 400
+Roma - 400
+Monaco - 700
+Helsinki - 560
+<>
+Frankfurt : 8
+Lisboa - 1200
+Madrid - 700
+Barcelona - 650
+Oslo - 800
+Kiev - 900
+Monaco - 450
+Roma - 600
+Helsinki - 700
+<>
+Oslo : 5
+Frankfurt - 300
+Kiev - 500
+Helsinki - 200
+Monaco - 600
+Roma - 700
+<>
+Helsinki : 4
+Frankfurt - 400
+Oslo - 150
+Kiev - 350
+Londres - 750
+<>
+Monaco : 5
+Londres - 550
+Barcelona - 300
+Frankfurt - 400
+Roma - 250
+Oslo - 650
+<>
+Roma : 6
+Londres - 500
+Barcelona - 450
+Madrid - 600
+Frankfurt - 400
+Monaco - 300
+Helsinki - 650
+<>
+Kiev : 4
+Oslo - 500
+Helsinki - 400
+Londres - 1200
+Roma - 800
+<Close>

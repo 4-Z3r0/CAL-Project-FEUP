@@ -3,8 +3,7 @@
 #include<iostream>
 #include<string>
 #include<vector>
-#include"Vertex.h"
-#include"Edge.h"
+#include "Graph.h"
 
 
 
@@ -13,8 +12,8 @@
 //If the customer whiches to stay in the city one more day the is an EdgeStay for the next day (Stay).
 //This class is considered an invisible Vertex since it will not be shown. 
 
-class Stay : public Vertex
+class Stay : public Vertex<City>
 {
 private:
-	Edge nextStay;
+	Edge<City> nextStay;
 };

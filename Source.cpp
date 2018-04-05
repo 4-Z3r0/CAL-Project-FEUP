@@ -4,8 +4,15 @@
 #include "City.h"
 #include "Trip.h"
 #include "Utilities.h"
+#include "FileIO.h"
 
 using namespace std;
+
+
+void UI()
+{
+
+}
 
 
 
@@ -136,6 +143,7 @@ int main() {
 	*/
 
 	//Testing travelling Salesman with City
+	
 	City porto("Porto");
 	City madrid("Madrid");
 	City lisboa("Lisboa");
@@ -152,6 +160,7 @@ int main() {
 	set<City> setCities = { madrid, lisboa, barcelona, londres };
 	cities = graph.travellingSalesman(graph.makeMinTree(porto, setCities));
 	printVec<City>(cities);
+	
 
 
 
@@ -164,5 +173,8 @@ int main() {
 	City monaco("Monaco");
 	*/
 
+	//Testing Graph constructor from file
+	//graph = getGraph1FromFile();
+	//cout << graph << endl;
 
 }

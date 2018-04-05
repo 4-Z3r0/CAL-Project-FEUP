@@ -44,6 +44,28 @@ Graph<City> makeCGraphFromVertices(vector<City> vertices)
 	return graph;
 }
 
+Graph<City> makeCGraphFromVertices(vector<City> vertices, vector<Trip> trips)
+{
+	if (pow(vertices.size(), 2) == trips.size()) {
+
+	}
+	Graph<City> graph;
+	for (auto it = vertices.begin(); it != vertices.end(); it++)
+	{
+		graph.addVertex(it->getName());
+	}
+	for (int i = 0; i < vertices.size() - 1; i++)
+	{
+		for (int j = i + 1; j < vertices.size(); j++)
+		{
+			int r = rand() % vertices.size() + 1;
+			graph.addEdge(vertices.at(i), vertices.at(j), Trip((int)pow(r, 2), (float)1));
+			graph.addEdge(vertices.at(j), vertices.at(i), Trip((int)pow(r, 2), (float)1));
+		}
+	}
+	return graph;
+}
+
 
 
 

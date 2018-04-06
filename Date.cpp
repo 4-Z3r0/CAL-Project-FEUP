@@ -59,13 +59,6 @@ string Date::getDate() const {
 
 	return (syear + "/" + to_DateString(month) + "/" + to_DateString(day));
 }
-
-Date Date::getNow() {
-	time_t t = time(0);
-	struct tm * now = localtime(&t);
-	return Date(now->tm_year + 1900, (now->tm_mon + 1), now->tm_mday);
-}
-
 string Date::to_DateString(unsigned int date) const {
 	if (date < 10)
 		return ("0" + to_string(date));
@@ -104,21 +97,6 @@ void Date::setDay(unsigned int day) {
 		return;
 
 	this->day = day;
-}
-
-bool Date::past(unsigned int year, unsigned int month, unsigned int day) {
-	time_t t = time(0);
-	struct tm * now = localtime(&t);
-
-	if (year == now->tm_year + 1900) {
-
-		if (month == now->tm_mon + 1) {
-
-			return (day < now->tm_mday);
-		}
-		return (month < now->tm_mon + 1);
-	}
-	return (year < now->tm_year + 1900);
 }
 
 bool Date::operator< (const Date &d) const {

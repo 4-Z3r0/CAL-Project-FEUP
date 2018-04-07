@@ -143,7 +143,7 @@ int main() {
 	*/
 
 	//Testing travelling Salesman with City
-	
+	/*
 	City porto("Porto");
 	City madrid("Madrid");
 	City lisboa("Lisboa");
@@ -161,7 +161,7 @@ int main() {
 	cities = graph.travellingSalesman(graph.makeMinTree(porto, setCities));
 	printVec<City>(cities);
 	
-
+	*/
 
 
 	/*
@@ -174,7 +174,7 @@ int main() {
 	*/
 
 	//Testing Graph constructor from file
-	//graph = getGraph1FromFile();
-	//cout << graph << endl;
+	graph = getGraph1FromFile();
+	cout << graph << endl;
 
 }

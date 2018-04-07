@@ -15,6 +15,16 @@ string City::getName() const {
 	return name;
 }
 
+vector<Stay> City::getStays() const
+{
+	return stays;
+}
+
+void City::addStay(Stay stay)
+{
+	stays.push_back(stay);
+}
+
 bool operator==(City & c1, const City & c2) {
 	return c1.getName() == c2.getName();
 }

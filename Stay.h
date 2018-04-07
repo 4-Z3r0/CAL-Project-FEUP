@@ -3,8 +3,6 @@
 #include<iostream>
 #include<string>
 #include<vector>
-#include "Graph.h"
-#include "City.h"
 #include "Date.h"
 
 
@@ -14,16 +12,19 @@ class Stay
 {
 private:
 	Date date;
-	City city;
-	float price;
+	string cityName;
+	double price;
 public:
-	Stay(Date date,City city,float price);
-	float getPrice() const;
-	City getCity() const;
+	Stay(Date date,string cityName,float price);
+	double getPrice() const;
+	string getCity() const;
 	Date getDate() const;
 	void setDate(Date date);
-	void setCity(City city);
-	void setPrice(float price);
+	void setCity(string cityName);
+	void setPrice(double price);
+	friend bool operator==(Stay& c1, const Stay& c2);
+	friend ostream& operator<<(ostream& out, Stay& c);
+	friend bool operator<(const Stay& c1, const Stay& c2);
 
 	
 };

@@ -309,7 +309,7 @@ T Graph<T>::findClosestNotTree(const T &source , set<T> &cities)
 
 	for (auto it = v->adj.begin(); it != v->adj.end(); it++)
 	{
-		if (((min == -1) || (it->weight.getPrice() < min)) && (it->dest->tree == false) &&  cities.end() != cities.find(it->dest->info.getName()))
+		if (((min == -1) || (it->weight.getPrice() < min)) && (it->dest->tree == false) &&  cities.end() != cities.find(it->dest->info))
 		{
 			minDest = it->dest->info;
 			min = it->weight.getPrice();

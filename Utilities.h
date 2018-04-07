@@ -30,7 +30,7 @@ Graph<City> makeCGraphFromVertices(vector<City> vertices)
 	Graph<City> graph;
 	for (auto it = vertices.begin(); it != vertices.end(); it++)
 	{
-		graph.addVertex(it->getName());
+		graph.addVertex(*it);
 	}
 	for (int i = 0; i < vertices.size() - 1; i++)
 	{
@@ -47,12 +47,12 @@ Graph<City> makeCGraphFromVertices(vector<City> vertices)
 Graph<City> makeCGraphFromVertices(vector<City> vertices, vector<Trip> trips)
 {
 	if (pow(vertices.size(), 2) == trips.size()) {
-
+		cout << "ERROR!\n";
 	}
 	Graph<City> graph;
 	for (auto it = vertices.begin(); it != vertices.end(); it++)
 	{
-		graph.addVertex(it->getName());
+		graph.addVertex(*it);
 	}
 	for (int i = 0; i < vertices.size() - 1; i++)
 	{

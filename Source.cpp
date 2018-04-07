@@ -261,7 +261,8 @@ int main() {
 	londres.addStay(lo10);
 	londres.addStay(lo11);
 	vector<City> cities;
-	cities.push_back(porto);
+	vector<City> c2;
+ 	cities.push_back(porto);
 	cities.push_back(madrid);
 	cities.push_back(lisboa);
 	cities.push_back(barcelona);
@@ -269,10 +270,11 @@ int main() {
 	graph = makeCGraphFromVertices(cities);
 	cout << graph << endl << endl << endl << endl;
 	set<City> setCities = { madrid, lisboa, barcelona, londres };
-	cities = graph.travellingSalesman(graph.makeMinTree(porto, setCities));
-	if (cities.at(1).getStays().size() == 0) {
+	c2 = graph.travellingSalesman(graph.makeMinTree(porto, setCities));
+	if (c2.at(1).getStays().size() == 0) {
 		cout << "SadPepe" << endl;
 	}
+	//No more Sad Pepe.
 	//getCheapestStays(cities, Date(2018, 04, 8), Date(2018, 04, 15));
 	printVec<City>(cities);
 	

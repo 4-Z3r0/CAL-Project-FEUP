@@ -13,6 +13,9 @@
 class Stay 
 {
 private:
+
+
+
 	Date date;
 	City city;
 	float price;

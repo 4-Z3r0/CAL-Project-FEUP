@@ -6,6 +6,7 @@
 #include "Utilities.h"
 #include "FileIO.h"
 #include "Date.h"
+#include "Stay.h"
 using namespace std;
 
 
@@ -143,7 +144,7 @@ int main() {
 	*/
 
 	//Testing travelling Salesman with City
-	/*
+	
 	City porto("Porto");
 	Stay p1(Date(2018, 04, 6), "Porto", 12);
 	Stay p2(Date(2018, 04, 7), "Porto", 9);
@@ -275,7 +276,7 @@ int main() {
 	//getCheapestStays(cities, Date(2018, 04, 8), Date(2018, 04, 15));
 	printVec<City>(cities);
 	
-	*/
+	
 
 
 	/*
@@ -288,7 +289,7 @@ int main() {
 	*/
 
 	//Testing Graph constructor from file
-	graph = getGraph1FromFile();
-	cout << graph << endl;
+	//graph = getGraph1FromFile();
+	//cout << graph << endl;
 
 }

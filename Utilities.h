@@ -67,7 +67,7 @@ Graph<City> makeCGraphFromVertices(vector<City> vertices, vector<Trip> trips)
 }
 
 
-/*void getCheapestStays(vector<City> cities, Date start, Date end) {
+void getCheapestStays(vector<City> cities, Date start, Date end) {
 
 	Graph<Stay> graph;
 	int visitDay = 0;
@@ -121,7 +121,7 @@ Graph<City> makeCGraphFromVertices(vector<City> vertices, vector<Trip> trips)
 	}
 	//graph.dijkstraShortestPath(cities.at(0).getStays().at(0));
 	//graph.getPath(cities.at(0).getStays().at(0), EndOfJourney);
-}*/
+}
 
 template<class T>
 void printVec(vector<T> v)

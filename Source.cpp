@@ -148,8 +148,8 @@ int main() {
 	City porto("Porto");
 	Stay p1(Date(2018, 04, 6), "Porto", 12);
 	Stay p2(Date(2018, 04, 7), "Porto", 9);
-	Stay p3(Date(2018, 04, 8), "Porto", 4);
-	Stay p4(Date(2018, 04, 9), "Porto", 5);
+	Stay p3(Date(2018, 04, 8), "Porto", 44);
+	Stay p4(Date(2018, 04, 9), "Porto", 55);
 	Stay p5(Date(2018, 04, 10), "Porto", 23);
 	Stay p6(Date(2018, 04, 11), "Porto", 15);
 	Stay p7(Date(2018, 04, 12), "Porto", 53);
@@ -271,13 +271,11 @@ int main() {
 	cout << graph << endl << endl << endl << endl;
 	set<City> setCities = { madrid, lisboa, barcelona, londres };
 	c2 = graph.travellingSalesman(graph.makeMinTree(porto, setCities));
-	if (c2.at(1).getStays().size() == 0) {
-		cout << "SadPepe" << endl;
-	}
 	//No more Sad Pepe.
-	//getCheapestStays(cities, Date(2018, 04, 8), Date(2018, 04, 15));
-	printVec<City>(cities);
-	
+	printVec<City>(c2);
+	getCheapestStays(c2, Date(2018,4,8), Date(2018,4,15));
+
+
 	
 
 

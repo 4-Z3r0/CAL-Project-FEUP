@@ -10,6 +10,7 @@
 #include <ostream>
 #include <iostream>
 #include "BT.h"
+#include "Stay.h"
 
 
 using namespace std;
@@ -130,6 +131,7 @@ public:
 	T findClosestNotTree(const T &source, set<T> &cities);
 	BTCustom<T> makeMinTree(T &source, set<T> cities);
 	vector<T> travellingSalesman(BTCustom<T> tree);
+	
 
 
 	friend ostream& operator<< <>(ostream& out, Graph<T>& graph);

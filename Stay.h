@@ -18,6 +18,7 @@ private:
 	string cityName;
 	double price;
 public:
+	Stay() {};
 	Stay(Date date,string cityName,float price);
 	double getPrice() const;
 	string getCity() const;

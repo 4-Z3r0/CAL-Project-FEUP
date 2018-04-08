@@ -37,8 +37,8 @@ Graph<City> makeCGraphFromVertices(vector<City> vertices)
 		for (int j = i + 1; j < vertices.size(); j++)
 		{
 			int r = rand() % vertices.size() + 1;
-			graph.addEdge(vertices.at(i), vertices.at(j), Trip((int)pow(r, 2), (float)1));
-			graph.addEdge(vertices.at(j), vertices.at(i), Trip((int)pow(r, 2), (float)1));
+			graph.addEdge(vertices.at(i), vertices.at(j), (int)pow(r, 2));
+			graph.addEdge(vertices.at(j), vertices.at(i), (int)pow(r, 2));
 		}
 	}
 	return graph;
@@ -59,8 +59,8 @@ Graph<City> makeCGraphFromVertices(vector<City> vertices, vector<Trip> trips)
 		for (int j = i + 1; j < vertices.size(); j++)
 		{
 			int r = rand() % vertices.size() + 1;
-			graph.addEdge(vertices.at(i), vertices.at(j), Trip((int)pow(r, 2), (float)1));
-			graph.addEdge(vertices.at(j), vertices.at(i), Trip((int)pow(r, 2), (float)1));
+			graph.addEdge(vertices.at(i), vertices.at(j), (int)pow(r, 2));
+			graph.addEdge(vertices.at(j), vertices.at(i), (int)pow(r, 2));
 		}
 	}
 	return graph;
@@ -121,13 +121,13 @@ void getCheapestStays(vector<City> cities, Date start, Date end) {
 				}
 				else {
 					if (i == 0 && j < stays.size() - 1) {
-						graph.addEdge(stays.at(j), stays.at(j + 1), Trip(0, 1));
+						graph.addEdge(stays.at(j), stays.at(j + 1), 0);
 					}
 					if (i < cities.size() - 1) {
-						graph.addEdge(stays.at(j), cities.at(i + 1).getStays().at(j + 1), Trip(stays.at(j).getPrice(), 1));
+						graph.addEdge(stays.at(j), cities.at(i + 1).getStays().at(j + 1), stays.at(j).getPrice());
 					}
 					else {
-						graph.addEdge(stays.at(j), EndOfJourney, Trip(0, 1));
+						graph.addEdge(stays.at(j), EndOfJourney, 0);
 					}
 
 				}

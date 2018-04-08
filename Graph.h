@@ -37,7 +37,7 @@ class Vertex {
 
 	bool processing = false;
 	bool tree = false;
-	void addEdge(Vertex<T> *dest, Trip w);
+	void addEdge(Vertex<T> *dest, double w);
 
 public:
 	Vertex(T in);
@@ -61,7 +61,7 @@ Vertex<T>::Vertex(T in) : info(in) {}
 * with a given destination vertex (d) and edge weight (w).
 */
 template <class T>
-void Vertex<T>::addEdge(Vertex<T> *d, Trip w) {
+void Vertex<T>::addEdge(Vertex<T> *d, double w) {
 	adj.push_back(Edge<T>(d, w));
 }
 
@@ -90,9 +90,9 @@ Vertex<T> *Vertex<T>::getPath() const {
 template <class T>
 class Edge {
 	Vertex<T> * dest;      // destination vertex
-	Trip weight;         // edge weight
+	double weight;         // edge weight
 public:
-	Edge(Vertex<T> *d, Trip w);
+	Edge(Vertex<T> *d, double w);
 	friend class Graph<T>;
 	friend class Vertex<T>;
 	friend ostream& operator<< <>(ostream& out, Graph<T>& graph);
@@ -101,7 +101,7 @@ public:
 };
 
 template <class T>
-Edge<T>::Edge(Vertex<T> *d, Trip w) : dest(d), weight(w) {}
+Edge<T>::Edge(Vertex<T> *d, double w) : dest(d), weight(w) {}
 
 
 
@@ -114,14 +114,14 @@ class Graph {
 public:
 	Vertex<T> *findVertex(const T &in) const;
 	bool addVertex(const T &in);
-	bool addEdge(const T &sourc, const T &dest, Trip w);
+	bool addEdge(const T &sourc, const T &dest, double w);
 	int getNumVertex() const;
 	vector<Vertex<T> *> getVertexSet() const;
 
 	// Fp05 - single source
 	void showShortestPath(T &origin, T &dest);
 	Vertex<T> * initSingleSource(const T &origin);
-	bool relax(Vertex<T> *v, Vertex<T> *w, Trip weight);
+	bool relax(Vertex<T> *v, Vertex<T> *w, double weight);
 	void dijkstraShortestPath(const T &s);
 	void dijkstraShortestPathOld(const T &s);
 	void unweightedShortestPath(const T &s);
@@ -184,7 +184,7 @@ bool Graph<T>::addVertex(const T &in) {
 * Returns true if successful, and false if the source or destination vertex does not exist.
 */
 template <class T>
-bool Graph<T>::addEdge(const T &sourc, const T &dest, Trip w) {
+bool Graph<T>::addEdge(const T &sourc, const T &dest, double w) {
 	auto v1 = findVertex(sourc);
 	auto v2 = findVertex(dest);
 	if (v1 == NULL || v2 == NULL)
@@ -229,9 +229,9 @@ Vertex<T> * Graph<T>::initSingleSource(const T &origin) {
 * Used by all single-source shortest path algorithms.
 */
 template<class T>
-bool Graph<T>::relax(Vertex<T> *v, Vertex<T> *w, Trip weight) {
-	if (v->dist + weight.getPrice() < w->dist) {
-		w->dist = v->dist + weight.getPrice();
+bool Graph<T>::relax(Vertex<T> *v, Vertex<T> *w, double weight) {
+	if (v->dist + weight < w->dist) {
+		w->dist = v->dist + weight;
 		w->path = v;
 		return true;
 	}
@@ -311,10 +311,10 @@ T Graph<T>::findClosestNotTree(const T &source , set<T> &cities)
 
 	for (auto it = v->adj.begin(); it != v->adj.end(); it++)
 	{
-		if (((min == -1) || (it->weight.getPrice() < min)) && (it->dest->tree == false) &&  cities.end() != cities.find(it->dest->info))
+		if (((min == -1) || (it->weight < min)) && (it->dest->tree == false) &&  cities.end() != cities.find(it->dest->info))
 		{
 			minDest = it->dest->info;
-			min = it->weight.getPrice();
+			min = it->weight;
 			minV = it->dest;
 			flag = true;
 		}
@@ -383,7 +383,7 @@ ostream& operator<< <>(ostream& out, Graph<T>& graph)
 		cout << "VERTEX: " << v->info << endl;
 		for (int j = 0; j < v->adj.size(); j++)
 		{
-			cout << "edge to: " << v->adj.at(j).dest->info.getName() << "     price: " << v->adj.at(j).weight.getPrice() << endl;
+			cout << "edge to: " << v->adj.at(j).dest->info.getName() << "     price: " << v->adj.at(j).weight << endl;
 		}
 		cout << endl << endl;
 	}

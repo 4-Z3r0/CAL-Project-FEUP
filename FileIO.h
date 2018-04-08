@@ -58,7 +58,7 @@ Graph<City> getGraph1FromFile()
 			{
 				getline(g1, s);
 				p = StringSeparator(s);
-				g.addEdge(v->getInfo(), City(p.second), Trip(p.first,0));
+				g.addEdge(v->getInfo(), City(p.second), p.first);
 			}
 			getline(g1, s);
 		}

@@ -24,7 +24,6 @@ Graph<T> makeCompleteGraph(int numVertex)
 }
 
 
-//NOT TESTED
 Graph<City> makeCGraphFromVertices(vector<City> vertices)
 {
 	Graph<City> graph;

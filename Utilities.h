@@ -150,6 +150,7 @@ City findCity(vector<City> &cities, string name) {
 			return cities.at(i);
 		}
 	}
+	cout << "There is no City with that Name \n";
 	return city;
 
 }
@@ -194,5 +195,24 @@ City getArrival(Graph <City> &graph, vector<City> &cities) {
 	City city = findCity(cities, cityname);
 	return city;
 
+}
+
+set<City> getSet(Graph <City> &graph, vector<City> &cities) {
+	set<City> citiesToVisit;
+	printVec(cities);
+	cout << "Which cities do you want to Visit? (0 to stop) \n";
+	string answer;
+	answer = checkString(answer);
+	citiesToVisit.insert(findCity(cities, answer));
+
+	while (answer != "0") {
+		cout << "Which cities do you want to Visit? (0 to stop) \n";
+		answer = checkString(answer);
+		if (answer == "0") {
+			return citiesToVisit;
+		}
+		citiesToVisit.insert(findCity(cities, answer));
+	}
+	return citiesToVisit;
 }
 

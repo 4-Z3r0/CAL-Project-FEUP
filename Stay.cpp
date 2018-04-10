@@ -14,6 +14,13 @@ Stay::Stay(Date date, string cityName, float price)
 	this->cityName = cityName;
 	this->price = price;
 }
+Stay::Stay(string s) {
+	istringstream stayStream(s);
+	char aux;
+	int year, month, day;
+	stayStream >> year >> aux >> month >> aux >> day >> aux >> this->cityName >> aux >> this->price;
+	this->date = Date(year, month, day);
+}
 
 double Stay::getPrice() const {
 	return price;

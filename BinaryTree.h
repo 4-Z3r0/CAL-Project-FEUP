@@ -1,3 +1,4 @@
+#pragma once
 #ifndef _BINARYTREE_H
 #define _BINARY_TREE_H
 

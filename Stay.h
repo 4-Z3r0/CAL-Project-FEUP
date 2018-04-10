@@ -3,6 +3,7 @@
 #include<iostream>
 #include<string>
 #include<vector>
+#include <sstream> 
 #include "Date.h"
 
 
@@ -20,6 +21,7 @@ private:
 public:
 	Stay() {};
 	Stay(Date date,string cityName,float price);
+	Stay(string s);
 	double getPrice() const;
 	string getCity() const;
 	Date getDate() const;

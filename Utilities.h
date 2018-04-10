@@ -1,4 +1,6 @@
+#pragma once
 #include"Graph.h"
+#include "City.h"
 #include<cmath>
 
 using namespace std;
@@ -16,15 +18,14 @@ Graph<T> makeCompleteGraph(int numVertex)
 		for (int j = i + 1; j < numVertex; j++)
 		{
 			int r = rand() % numVertex + 1;
-			graph.addEdge(('A' + i), ('A' + j), Trip((int)pow(r, 2), (float)1));
-			graph.addEdge(('A' + j), ('A' + i), Trip((int)pow(r, 2), (float)1));
+			graph.addEdge(('A' + i), ('A' + j), (int)pow(r, 2));
+			graph.addEdge(('A' + j), ('A' + i), (int)pow(r, 2));
 		}
 	}
 	return graph;
 }
 
 
-//NOT TESTED
 Graph<City> makeCGraphFromVertices(vector<City> vertices)
 {
 	Graph<City> graph;
@@ -142,6 +143,16 @@ void getCheapestStays(vector<City> cities, Date start, Date end) {
 	printStaysRoute(stays,firstValidStay);
 
 }
+City findCity(vector<City> &cities, string name) {
+	City city;
+	for (unsigned int i = 0; i < cities.size(); i++) {
+		if (cities.at(i).getName() == name) {
+			return cities.at(i);
+		}
+	}
+	return city;
+
+}
 
 template<class T>
 void printVec(vector<T> v)
@@ -152,4 +163,36 @@ void printVec(vector<T> v)
 	}
 }
 
+
+string checkString(string s1) {
+	getline(cin, s1);
+
+	while (cin.fail())
+	{
+		cout << "Invalid Input" << endl;
+		cin.clear();
+		cin.ignore(1000, '\n');
+		getline(cin, s1);
+	}
+	return s1;
+}
+
+City getOrigin(Graph <City> &graph, vector<City> &cities) {
+	string cityname;
+	cout << "Name of the City you will leave from : " << endl;
+	cityname = checkString(cityname);
+	City city = findCity(cities, cityname);
+	return city;
+
+}
+
+
+City getArrival(Graph <City> &graph, vector<City> &cities) {
+	string cityname;
+	cout << "Name of the City you want to travel to: " << endl;
+		cityname = checkString(cityname);
+	City city = findCity(cities, cityname);
+	return city;
+
+}
 

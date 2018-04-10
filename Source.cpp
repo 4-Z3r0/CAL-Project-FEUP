@@ -36,12 +36,15 @@ void graph1Menu(Graph<City> &graph, vector<City> &cities) {
 		cout << "|     2) Back to Main Menu                         |" << endl;
 		cout << "|    Option: ";
 		choice = checkBoundaries(1, 2);
-		
+		City alpha;
+		City beta;
 		switch (choice) {
 		case 1:
 			cout << endl;
 			cin.ignore(1000, '\n');
-			graph.showShortestPath(getOrigin(graph, cities), getArrival(graph, cities));
+			alpha = getOrigin(graph, cities);
+			beta = getArrival(graph, cities);
+			graph.showShortestPath(alpha,beta);
 			break;
 
 		case 2:
@@ -56,7 +59,7 @@ void graph1Menu(Graph<City> &graph, vector<City> &cities) {
 
 void graph2Menu(Graph<City> &graph, vector<City> &cities) {
 	int choice = 0;
-
+	
 	while (choice != 3) {
 		cout << "____________________________________________________" << endl;
 		cout << "|               COMPLETE GRAPH                     |" << endl;
@@ -69,11 +72,15 @@ void graph2Menu(Graph<City> &graph, vector<City> &cities) {
 
 		choice = checkBoundaries(1, 3);
 
-
-
+		City start;
+		set<City> setCities;
 		switch (choice) {
 		case 1:
 			cout << endl;
+			cin.ignore(1000, '\n');
+			start = getOrigin(graph, cities);
+			setCities = getSet(graph, cities);
+			graph.travellingSalesman(graph.makeMinTree(start, setCities));
 			break;
 
 		case 2:
@@ -112,6 +119,7 @@ void mainMenu(Graph<City> &graph, vector<City> &cities) {
 			break;
 
 		case 2:
+			graph = getGraph2FromFile(cities);
 			graph2Menu(graph, cities);
 			break;
 		case 3:
@@ -130,8 +138,8 @@ int main() {
     vector<City> cities;
 	mainMenu(graph,cities);
 
-	/*
-	set<City> setCities = { findCity(cities,"Madrid"),findCity(cities,"Lisboa"),findCity(cities,"Londres"),findCity(cities,"Barcelona") };
+	
+	/*set<City> setCities = { findCity(cities,"Madrid"),findCity(cities,"Lisboa"),findCity(cities,"Londres"),findCity(cities,"Barcelona") };
 	//vector<City> c2 = graph.travellingSalesman(graph.makeMinTree(findCity(cities, "Porto"), setCities));
 	cout << graph << endl;
 	printVec<City>(cities);

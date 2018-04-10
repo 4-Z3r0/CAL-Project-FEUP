@@ -24,7 +24,7 @@ int checkBoundaries(int linf, int lsup) {
 	return nr;
 }
 
-void graph1Menu(Graph<City> &graph, vector<City> &cities) {
+void graph1Menu(Graph<City> graph, vector<City> cities) {
 	int choice = 0;
 
 	while (choice != 2) {
@@ -57,9 +57,10 @@ void graph1Menu(Graph<City> &graph, vector<City> &cities) {
 	}
 }
 
-void graph2Menu(Graph<City> &graph, vector<City> &cities) {
+void graph2Menu(Graph<City> graph, vector<City> cities) {
 	int choice = 0;
-	
+	Graph <City> orginal = graph;
+	vector<City> orginalCity = cities;
 	while (choice != 3) {
 		cout << "____________________________________________________" << endl;
 		cout << "|               COMPLETE GRAPH                     |" << endl;
@@ -79,25 +80,30 @@ void graph2Menu(Graph<City> &graph, vector<City> &cities) {
 		Date endDate;
 		switch (choice) {
 		case 1:
+			graph = orginal;
+			cities = orginalCity;
 			cout << endl;
 			cin.ignore(1000, '\n');
 			start = getOrigin(graph, cities);
 			setCities = getSet(graph, cities);
 			printVec(graph.travellingSalesman(graph.makeMinTree(start, setCities)));
-			break;
+			return;
 
 		case 2:
+			graph = orginal;
+			cities = orginalCity;
 			cout << endl << endl;
 			cout << endl;
 			cin.ignore(1000, '\n');
 			start = getOrigin(graph, cities);
 			setCities = getSet(graph, cities);
 			citiesInOrder = graph.travellingSalesman(graph.makeMinTree(start, setCities));
+			filterCities(citiesInOrder);
 			printVec(citiesInOrder);
 			startDate = getStartDate();
 			endDate = getEndDate();
 			getCheapestStays(citiesInOrder, startDate, endDate);
-			break;
+			return;
 
 		case 3:
 			cout << endl << endl;
@@ -108,7 +114,7 @@ void graph2Menu(Graph<City> &graph, vector<City> &cities) {
 	}
 }
 
-void mainMenu(Graph<City> &graph, vector<City> &cities) {
+void mainMenu(Graph<City> graph, vector<City> cities) {
 	int choice = 0;
 
 	while (choice != 3) {

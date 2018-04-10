@@ -43,6 +43,7 @@ void addMultipleVertices(Graph<City> &g, Vertex<City>* v, vector<int> &prices)
 
 Graph<City> getGraph1FromFile(vector<City> &cities)
 {
+	cities.clear();
 	Graph<City> g;
 	ifstream g1;
 	pair<int, string> p;
@@ -86,6 +87,7 @@ Graph<City> getGraph1FromFile(vector<City> &cities)
 
 Graph<City> getGraph2FromFile(vector<City> &cities)
 {
+	cities.clear();
 	Graph<City> g;
 	ifstream g1;
 	int price;
@@ -117,7 +119,7 @@ Graph<City> getGraph2FromFile(vector<City> &cities)
 		}
 		getline(g1, s);
 		v = g.findVertex(City(s));
-		while (s != "<Stays>"  && getline(g1, s))
+		while (s != "<Close>"  && getline(g1, s))
 		{
 			if (s != "")
 			{
@@ -129,19 +131,6 @@ Graph<City> getGraph2FromFile(vector<City> &cities)
 				addMultipleVertices(g, v, pricesVec);
 				getline(g1, s);
 				v = g.findVertex(City(s));
-			}
-		}
-		unsigned int i = 0;
-		getline(g1, s);
-		while (s != "<Close>"  && getline(g1, s))
-		{
-			if (s != "!")
-			{
-				cities.at(i).addStay(Stay(s));
-			}
-			else
-			{
-				i++;
 			}
 		}
 		g1.close();

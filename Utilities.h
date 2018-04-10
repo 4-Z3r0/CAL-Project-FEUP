@@ -155,12 +155,14 @@ City findCity(vector<City>  const cities, string name) {
 
 }
 
-template<class T>
-void printVec(vector<T> v)
+void printVec(vector<City> v)
 {
 	for (int i = 0; i < v.size(); i++)
 	{
-		cout << v.at(i) << endl;
+		if (v.at(i).getName() != "NULLCITY") {
+			cout << " --> " << v.at(i);
+		}
+		
 	}
 }
 
@@ -227,5 +229,12 @@ Date getEndDate() {
 	cout << "Insert the upper limit of the date you wish to travel (yyyy/mm/dd) \n";
 	input = checkString(input);
 	return Date(input);
+}
+void filterCities(vector<City> &cities) {
+	for (unsigned int i = 0; i < cities.size();i++) {
+		if (cities.at(i).getName() == "NULLCITY") {
+			cities.erase(cities.begin() + i);
+		}
+	}
 }
 

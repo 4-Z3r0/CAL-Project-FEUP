@@ -74,6 +74,9 @@ void graph2Menu(Graph<City> &graph, vector<City> &cities) {
 
 		City start;
 		set<City> setCities;
+		vector<City> citiesInOrder;
+		Date startDate;
+		Date endDate;
 		switch (choice) {
 		case 1:
 			cout << endl;
@@ -85,6 +88,15 @@ void graph2Menu(Graph<City> &graph, vector<City> &cities) {
 
 		case 2:
 			cout << endl << endl;
+			cout << endl;
+			cin.ignore(1000, '\n');
+			start = getOrigin(graph, cities);
+			setCities = getSet(graph, cities);
+			citiesInOrder = graph.travellingSalesman(graph.makeMinTree(start, setCities));
+			printVec(citiesInOrder);
+			startDate = getStartDate();
+			endDate = getEndDate();
+			getCheapestStays(citiesInOrder, startDate, endDate);
 			break;
 
 		case 3:

@@ -215,4 +215,17 @@ set<City> getSet(Graph <City> &graph, vector<City> &cities) {
 	}
 	return citiesToVisit;
 }
+Date getStartDate() {
+	string input;
+	cout << "Insert the lower limit of the date you wish to travel (yyyy/mm/dd) \n";
+	input = checkString(input);
+	return Date(input);
+}
+
+Date getEndDate() {
+	string input;
+	cout << "Insert the upper limit of the date you wish to travel (yyyy/mm/dd) \n";
+	input = checkString(input);
+	return Date(input);
+}
 

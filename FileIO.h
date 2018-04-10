@@ -103,6 +103,15 @@ Graph<City> getGraph2FromFile(vector<City> &cities)
 			if (s == "!")
 				break;
 			temp = City(s);
+			unsigned int i = 0;
+			getline(g1, s);
+			while (s != "<Next>"  && getline(g1, s))
+			{
+				if (s != "!")
+				{
+					temp.addStay(Stay(s));
+				}
+			}
 			g.addVertex(temp);
 			cities.push_back(temp);
 		}

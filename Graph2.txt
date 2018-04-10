@@ -1,14 +1,279 @@
 Porto
+-
+2018 , 04 , 6 , Porto , 14
+2018 , 04 , 7 , Porto , 23
+2018 , 04 , 8 , Porto , 24
+2018 , 04 , 9 , Porto , 23
+2018 , 04 , 10 , Porto , 13
+2018 , 04 , 11 , Porto , 33
+2018 , 04 , 12 , Porto , 41
+2018 , 04 , 13 , Porto , 33
+2018 , 04 , 14 , Porto , 29
+2018 , 04 , 15 , Porto , 15
+2018 , 04 , 16 , Porto , 18
+2018 , 04 , 17 , Porto , 44
+2018 , 04 , 18 , Porto , 50
+2018 , 04 , 19 , Porto , 30
+2018 , 04 , 20 , Porto , 33
+2018 , 04 , 21 , Porto , 12
+2018 , 04 , 22 , Porto , 12
+2018 , 04 , 23 , Porto , 12
+2018 , 04 , 24 , Porto , 12
+2018 , 04 , 25 , Porto , 12
+2018 , 04 , 26 , Porto , 12
+2018 , 04 , 27 , Porto , 12
+<Next>
 Lisboa
+-
+2018 , 04 , 6 , Lisboa , 23
+2018 , 04 , 7 , Lisboa , 25
+2018 , 04 , 8 , Lisboa , 37
+2018 , 04 , 9 , Lisboa , 33
+2018 , 04 , 10 , Lisboa , 28
+2018 , 04 , 11 , Lisboa , 35
+2018 , 04 , 12 , Lisboa , 41
+2018 , 04 , 13 , Lisboa , 43
+2018 , 04 , 14 , Lisboa , 41
+2018 , 04 , 15 , Lisboa , 51
+2018 , 04 , 16 , Lisboa , 37
+2018 , 04 , 17 , Lisboa , 28
+2018 , 04 , 18 , Lisboa , 41
+2018 , 04 , 19 , Lisboa , 31
+2018 , 04 , 20 , Lisboa , 22
+2018 , 04 , 21 , Lisboa , 23
+2018 , 04 , 22 , Lisboa , 23
+2018 , 04 , 23 , Lisboa , 15
+2018 , 04 , 24 , Lisboa , 19
+2018 , 04 , 25 , Lisboa , 23
+2018 , 04 , 26 , Lisboa , 19
+2018 , 04 , 27 , Lisboa , 12
+<Next>
 Madrid
+-
+2018 , 04 , 6 , Madrid , 24
+2018 , 04 , 7 , Madrid , 33
+2018 , 04 , 8 , Madrid , 45
+2018 , 04 , 9 , Madrid , 43
+2018 , 04 , 10 , Madrid , 55
+2018 , 04 , 11 , Madrid , 23
+2018 , 04 , 12 , Madrid , 19
+2018 , 04 , 13 , Madrid , 34
+2018 , 04 , 14 , Madrid , 43
+2018 , 04 , 15 , Madrid , 54
+2018 , 04 , 16 , Madrid , 33
+2018 , 04 , 17 , Madrid , 28
+2018 , 04 , 18 , Madrid , 41
+2018 , 04 , 19 , Madrid , 56
+2018 , 04 , 20 , Madrid , 43
+2018 , 04 , 21 , Madrid , 37
+2018 , 04 , 22 , Madrid , 19
+2018 , 04 , 23 , Madrid , 23
+2018 , 04 , 24 , Madrid , 34
+2018 , 04 , 25 , Madrid , 39
+2018 , 04 , 26 , Madrid , 27
+2018 , 04 , 27 , Madrid , 40
+<Next>
 Barcelona
+-
+2018 , 04 , 6 , Barcelona , 34
+2018 , 04 , 7 , Barcelona , 26
+2018 , 04 , 8 , Barcelona , 37
+2018 , 04 , 9 , Barcelona , 53
+2018 , 04 , 10 , Barcelona , 43
+2018 , 04 , 11 , Barcelona , 37
+2018 , 04 , 12 , Barcelona , 23
+2018 , 04 , 13 , Barcelona , 45
+2018 , 04 , 14 , Barcelona , 34
+2018 , 04 , 15 , Barcelona , 34
+2018 , 04 , 16 , Barcelona , 28
+2018 , 04 , 17 , Barcelona , 54
+2018 , 04 , 18 , Barcelona , 42
+2018 , 04 , 19 , Barcelona , 56
+2018 , 04 , 20 , Barcelona , 32
+2018 , 04 , 21 , Barcelona , 37
+2018 , 04 , 22 , Barcelona , 53
+2018 , 04 , 23 , Barcelona , 23
+2018 , 04 , 24 , Barcelona , 47
+2018 , 04 , 25 , Barcelona , 38
+2018 , 04 , 26 , Barcelona , 26
+2018 , 04 , 27 , Barcelona , 33
+<Next>
 Londres
+-
+2018 , 04 , 6 , Londres , 40
+2018 , 04 , 7 , Londres , 43
+2018 , 04 , 8 , Londres , 47
+2018 , 04 , 9 , Londres , 55
+2018 , 04 , 10 , Londres , 60
+2018 , 04 , 11 , Londres , 76
+2018 , 04 , 12 , Londres , 42
+2018 , 04 , 13 , Londres , 45
+2018 , 04 , 14 , Londres , 38
+2018 , 04 , 15 , Londres , 40
+2018 , 04 , 16 , Londres , 70
+2018 , 04 , 17 , Londres , 87
+2018 , 04 , 18 , Londres , 56
+2018 , 04 , 19 , Londres , 55
+2018 , 04 , 20 , Londres , 48
+2018 , 04 , 21 , Londres , 63
+2018 , 04 , 22 , Londres , 56
+2018 , 04 , 23 , Londres , 48
+2018 , 04 , 24 , Londres , 47
+2018 , 04 , 25 , Londres , 38
+2018 , 04 , 26 , Londres , 49
+2018 , 04 , 27 , Londres , 28
+<Next>
 Frankfurt
+-
+2018 , 04 , 6 , Frankfurt , 40
+2018 , 04 , 7 , Frankfurt , 43
+2018 , 04 , 8 , Frankfurt , 47
+2018 , 04 , 9 , Frankfurt , 55
+2018 , 04 , 10 , Frankfurt , 60
+2018 , 04 , 11 , Frankfurt , 76
+2018 , 04 , 12 , Frankfurt , 42
+2018 , 04 , 13 , Frankfurt , 45
+2018 , 04 , 14 , Frankfurt , 38
+2018 , 04 , 15 , Frankfurt , 40
+2018 , 04 , 16 , Frankfurt , 70
+2018 , 04 , 17 , Frankfurt , 87
+2018 , 04 , 18 , Frankfurt , 56
+2018 , 04 , 19 , Frankfurt , 55
+2018 , 04 , 20 , Frankfurt , 48
+2018 , 04 , 21 , Frankfurt , 63
+2018 , 04 , 22 , Frankfurt , 56
+2018 , 04 , 23 , Frankfurt , 48
+2018 , 04 , 24 , Frankfurt , 47
+2018 , 04 , 25 , Frankfurt , 38
+2018 , 04 , 26 , Frankfurt , 49
+2018 , 04 , 27 , Frankfurt , 28
+<Next>
 Oslo
+-
+2018 , 04 , 6 , Oslo , 40
+2018 , 04 , 7 , Oslo , 43
+2018 , 04 , 8 , Oslo , 47
+2018 , 04 , 9 , Oslo , 55
+2018 , 04 , 10 , Oslo , 60
+2018 , 04 , 11 , Oslo , 76
+2018 , 04 , 12 , Oslo , 42
+2018 , 04 , 13 , Oslo , 45
+2018 , 04 , 14 , Oslo , 38
+2018 , 04 , 15 , Oslo , 40
+2018 , 04 , 16 , Oslo , 70
+2018 , 04 , 17 , Oslo , 87
+2018 , 04 , 18 , Oslo , 56
+2018 , 04 , 19 , Oslo , 55
+2018 , 04 , 20 , Oslo , 48
+2018 , 04 , 21 , Oslo , 63
+2018 , 04 , 22 , Oslo , 56
+2018 , 04 , 23 , Oslo , 48
+2018 , 04 , 24 , Oslo , 47
+2018 , 04 , 25 , Oslo , 38
+2018 , 04 , 26 , Oslo , 49
+2018 , 04 , 27 , Oslo , 28
+Frankfurt 
+<Next>
 Helsinki
+-
+2018 , 04 , 6 , Helsinki , 12
+2018 , 04 , 7 , Helsinki , 12
+2018 , 04 , 8 , Helsinki , 12
+2018 , 04 , 9 , Helsinki , 12
+2018 , 04 , 10 , Helsinki , 12
+2018 , 04 , 11 , Helsinki , 12
+2018 , 04 , 12 , Helsinki , 12
+2018 , 04 , 13 , Helsinki , 12
+2018 , 04 , 14 , Helsinki , 12
+2018 , 04 , 15 , Helsinki , 12
+2018 , 04 , 16 , Helsinki , 12
+2018 , 04 , 17 , Helsinki , 12
+2018 , 04 , 18 , Helsinki , 12
+2018 , 04 , 19 , Helsinki , 12
+2018 , 04 , 20 , Helsinki , 12
+2018 , 04 , 21 , Helsinki , 12
+2018 , 04 , 22 , Helsinki , 12
+2018 , 04 , 23 , Helsinki , 12
+2018 , 04 , 24 , Helsinki , 12
+2018 , 04 , 25 , Helsinki , 12
+2018 , 04 , 26 , Helsinki , 12
+2018 , 04 , 27 , Helsinki , 12
+<Next>
 Roma
+-
+2018 , 04 , 6 , Roma , 40
+2018 , 04 , 7 , Roma , 43
+2018 , 04 , 8 , Roma , 47
+2018 , 04 , 9 , Roma , 55
+2018 , 04 , 10 , Roma , 60
+2018 , 04 , 11 , Roma , 76
+2018 , 04 , 12 , Roma , 42
+2018 , 04 , 13 , Roma , 45
+2018 , 04 , 14 , Roma , 38
+2018 , 04 , 15 , Roma , 40
+2018 , 04 , 16 , Roma , 70
+2018 , 04 , 17 , Roma , 87
+2018 , 04 , 18 , Roma , 56
+2018 , 04 , 19 , Roma , 55
+2018 , 04 , 20 , Roma , 48
+2018 , 04 , 21 , Roma , 63
+2018 , 04 , 22 , Roma , 56
+2018 , 04 , 23 , Roma , 48
+2018 , 04 , 24 , Roma , 47
+2018 , 04 , 25 , Roma , 38
+2018 , 04 , 26 , Roma , 49
+2018 , 04 , 27 , Roma , 28
+<Next>
 Monaco
+-
+2018 , 04 , 6 , Monaco , 40
+2018 , 04 , 7 , Monaco , 43
+2018 , 04 , 8 , Monaco , 47
+2018 , 04 , 9 , Monaco , 55
+2018 , 04 , 10 , Monaco , 60
+2018 , 04 , 11 , Monaco , 76
+2018 , 04 , 12 , Monaco , 42
+2018 , 04 , 13 , Monaco , 45
+2018 , 04 , 14 , Monaco , 38
+2018 , 04 , 15 , Monaco , 40
+2018 , 04 , 16 , Monaco , 70
+2018 , 04 , 17 , Monaco , 87
+2018 , 04 , 18 , Monaco , 56
+2018 , 04 , 19 , Monaco , 55
+2018 , 04 , 20 , Monaco , 48
+2018 , 04 , 21 , Monaco , 63
+2018 , 04 , 22 , Monaco , 56
+2018 , 04 , 23 , Monaco , 48
+2018 , 04 , 24 , Monaco , 47
+2018 , 04 , 25 , Monaco , 38
+2018 , 04 , 26 , Monaco , 49
+2018 , 04 , 27 , Monaco , 28
+<Next>
 Kiev
+-
+2018 , 04 , 6 , Kiev , 40
+2018 , 04 , 7 , Kiev , 43
+2018 , 04 , 8 , Kiev , 47
+2018 , 04 , 9 , Kiev , 55
+2018 , 04 , 10 , Kiev , 60
+2018 , 04 , 11 , Kiev , 76
+2018 , 04 , 12 , Kiev , 42
+2018 , 04 , 13 , Kiev , 45
+2018 , 04 , 14 , Kiev , 38
+2018 , 04 , 15 , Kiev , 40
+2018 , 04 , 16 , Kiev , 70
+2018 , 04 , 17 , Kiev , 87
+2018 , 04 , 18 , Kiev , 56
+2018 , 04 , 19 , Kiev , 55
+2018 , 04 , 20 , Kiev , 48
+2018 , 04 , 21 , Kiev , 63
+2018 , 04 , 22 , Kiev , 56
+2018 , 04 , 23 , Kiev , 48
+2018 , 04 , 24 , Kiev , 47
+2018 , 04 , 25 , Kiev , 38
+2018 , 04 , 26 , Kiev , 49
+2018 , 04 , 27 , Kiev , 28
+<Next>
 !
 Porto
 150

@@ -125,7 +125,7 @@ void getCheapestStays(vector<City> cities, Date start, Date end) {
 						graph.addEdge(stays.at(j), stays.at(j + 1), 0);
 					}
 					if (i < cities.size() - 1) {
-						graph.addEdge(stays.at(j), cities.at(i + 1).getStays().at(j + 1), stays.at(j).getPrice());
+						graph.addEdge(stays.at(j), cities.at(i + 1).getStays().at(j + 1), cities.at(i + 1).getStays().at(j + 1).getPrice());
 					}
 					else {
 						graph.addEdge(stays.at(j), EndOfJourney, 0);

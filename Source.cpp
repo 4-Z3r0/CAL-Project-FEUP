@@ -80,7 +80,7 @@ void graph2Menu(Graph<City> &graph, vector<City> &cities) {
 			cin.ignore(1000, '\n');
 			start = getOrigin(graph, cities);
 			setCities = getSet(graph, cities);
-			graph.travellingSalesman(graph.makeMinTree(start, setCities));
+			printVec(graph.travellingSalesman(graph.makeMinTree(start, setCities)));
 			break;
 
 		case 2:

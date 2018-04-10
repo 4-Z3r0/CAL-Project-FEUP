@@ -119,7 +119,7 @@ public:
 	vector<Vertex<T> *> getVertexSet() const;
 
 	// Fp05 - single source
-	void showShortestPath(T &origin, T &dest);
+	vector<T> showShortestPath(T &origin, T &dest);
 	Vertex<T> * initSingleSource(const T &origin);
 	bool relax(Vertex<T> *v, Vertex<T> *w, double weight);
 	void dijkstraShortestPath(const T &s);
@@ -196,7 +196,7 @@ bool Graph<T>::addEdge(const T &sourc, const T &dest, double w) {
 
 /**************** Single Source Shortest Path algorithms ************/
 template<class T>
-inline void Graph<T>::showShortestPath(T & origin, T & dest) 
+inline vector<T> Graph<T>::showShortestPath(T & origin, T & dest) 
 {
 	vector<T> path;
 	dijkstraShortestPath(origin);
@@ -206,6 +206,7 @@ inline void Graph<T>::showShortestPath(T & origin, T & dest)
 		cout << path.at(i).getName() << "--->";
 	}
 	cout << "Trip Costs: " << findVertex(dest)->getDist() << endl;
+	return path;
 }
 
 /**

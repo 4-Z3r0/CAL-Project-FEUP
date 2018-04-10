@@ -48,7 +48,7 @@ Graph<City> makeCGraphFromVertices(vector<City> vertices)
 Graph<City> makeCGraphFromVertices(vector<City> vertices, vector<Trip> trips)
 {
 	if (pow(vertices.size(), 2) == trips.size()) {
-		cout << "ERROR!\n";
+		cout << "ERROR1!\n";
 	}
 	Graph<City> graph;
 	for (auto it = vertices.begin(); it != vertices.end(); it++)
@@ -143,7 +143,7 @@ void getCheapestStays(vector<City> cities, Date start, Date end) {
 	printStaysRoute(stays,firstValidStay);
 
 }
-City findCity(vector<City> &cities, string name) {
+City findCity(vector<City>  const cities, string name) {
 	City city;
 	for (unsigned int i = 0; i < cities.size(); i++) {
 		if (cities.at(i).getName() == name) {
@@ -178,7 +178,7 @@ string checkString(string s1) {
 	return s1;
 }
 
-City getOrigin(Graph <City> &graph, vector<City> &cities) {
+City getOrigin(Graph <City> const graph, vector<City> const cities) {
 	string cityname;
 	cout << "Name of the City you will leave from : " << endl;
 	cityname = checkString(cityname);
@@ -188,7 +188,7 @@ City getOrigin(Graph <City> &graph, vector<City> &cities) {
 }
 
 
-City getArrival(Graph <City> &graph, vector<City> &cities) {
+City getArrival(Graph <City> const graph, vector<City> const cities) {
 	string cityname;
 	cout << "Name of the City you want to travel to: " << endl;
 		cityname = checkString(cityname);

@@ -350,11 +350,13 @@ BTCustom<T> Graph<T>::makeMinTree(T &source, set<T> cities)
 		node->setNodeLeft(left);
 		q.push_back(left);
 
-		info = findClosestNotTree((*node).getInfo(), cities);
-		right = new BTNodeCustom<T>(info);
-		node->setNodeRight(right);
-		q.push_back(right);
-		
+		if (!cities.empty())
+		{
+			info = findClosestNotTree((*node).getInfo(), cities);
+			right = new BTNodeCustom<T>(info);
+			node->setNodeRight(right);
+			q.push_back(right);
+		}
 	}
 	return B;
 }

@@ -16,7 +16,7 @@ void map(vector<City> m){
 
 	int counter = 0;
 	j->setBackground("euriope.png");
-	j->defineVertexIcon("la1.png");
+	j->defineVertexIcon("airicon.png");
 	j->createWindow(1900, 1425);
 	j->defineEdgeCurved(false);
 	j->defineEdgeColor("RED");
@@ -36,7 +36,6 @@ void map(vector<City> m){
 
 	}
 
-	cout << "Im lost\n";
 	j->rearrange();
 
 	sleep(10);
@@ -50,7 +49,6 @@ void PrintGraph(Graph<City> &oi, vector<City> m = vector<City>()){
 	vector<Edge<City>> ma;
 	vector<Vertex<City> *> k = oi.getVertexSet();
 	GraphViewer *j = new GraphViewer(1900, 1425, false);
-	int ls = 0;
 	j->setBackground("euriope.png");
 	j->createWindow(1900, 1425);
 	j->defineEdgeCurved(false);
@@ -60,7 +58,7 @@ void PrintGraph(Graph<City> &oi, vector<City> m = vector<City>()){
 	for(int i = 0; i < oi.getNumVertex(); i++){
 		j->addNode(k[i]->getInfo().getIndex(), k[i]->getInfo().getCoordinates().first, k[i]->getInfo().getCoordinates().second);
 		j->setVertexLabel(k[i]->getInfo().getIndex(), k[i]->getInfo().getName());
-		j->setVertexIcon(k[i]->getInfo().getIndex(),"la1.png");
+		j->setVertexIcon(k[i]->getInfo().getIndex(),"airicon.png");
 
 	}
 
@@ -78,7 +76,7 @@ void PrintGraph(Graph<City> &oi, vector<City> m = vector<City>()){
 		for(int i = oi.getNumVertex(); i <= m.size() + oi.getNumVertex()-1; i++){
 			j->addNode(i, m[i-oi.getNumVertex()].getCoordinates().first, m[i-oi.getNumVertex()].getCoordinates().second);
 			j->setVertexLabel(i, m[i-oi.getNumVertex()].getName());
-			j->setVertexIcon(i, "la1.png");
+			j->setVertexIcon(i, "airicon.png");
 		}
 
 		counter = 0;
@@ -93,7 +91,7 @@ void PrintGraph(Graph<City> &oi, vector<City> m = vector<City>()){
 	}
 	j->rearrange();
 
-	sleep(60);
+	sleep(10);
 	j->closeWindow();
 
 	delete(j);
@@ -180,7 +178,6 @@ void graph2Menu(Graph<City> graph, vector<City> cities) {
 			start = getOrigin(graph, cities);
 			setCities = getSet(graph, cities);
 			printVec(graph.travellingSalesman(graph.makeMinTree(start, setCities)));
-
 			map(graph.travellingSalesman(graph.makeMinTree(start, setCities)));
 			return;
 
@@ -251,8 +248,6 @@ int main() {
 
 	Graph<City> graph;
 	vector<City> cities;
-
-	//GraphViewer *gv = new GraphViewer(1900, 1425, false);
 
 
 	mainMenu(graph,cities);

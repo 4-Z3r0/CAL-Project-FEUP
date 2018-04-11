@@ -1,4 +1,4 @@
-Porto
+Porto;70 , 1100
 -
 2018 , 04 , 6 , Porto , 14
 2018 , 04 , 7 , Porto , 23
@@ -23,7 +23,7 @@ Porto
 2018 , 04 , 26 , Porto , 12
 2018 , 04 , 27 , Porto , 12
 <Next>
-Lisboa
+Lisboa;20 , 1175
 -
 2018 , 04 , 6 , Lisboa , 23
 2018 , 04 , 7 , Lisboa , 25
@@ -48,7 +48,7 @@ Lisboa
 2018 , 04 , 26 , Lisboa , 19
 2018 , 04 , 27 , Lisboa , 12
 <Next>
-Madrid
+Madrid;190 , 1220
 -
 2018 , 04 , 6 , Madrid , 24
 2018 , 04 , 7 , Madrid , 33
@@ -73,7 +73,7 @@ Madrid
 2018 , 04 , 26 , Madrid , 27
 2018 , 04 , 27 , Madrid , 40
 <Next>
-Barcelona
+Barcelona;380 , 1170
 -
 2018 , 04 , 6 , Barcelona , 34
 2018 , 04 , 7 , Barcelona , 26
@@ -98,7 +98,7 @@ Barcelona
 2018 , 04 , 26 , Barcelona , 26
 2018 , 04 , 27 , Barcelona , 33
 <Next>
-Londres
+Londres;420 , 790
 -
 2018 , 04 , 6 , Londres , 40
 2018 , 04 , 7 , Londres , 43
@@ -123,7 +123,7 @@ Londres
 2018 , 04 , 26 , Londres , 49
 2018 , 04 , 27 , Londres , 28
 <Next>
-Frankfurt
+Frankfurt;600 , 900
 -
 2018 , 04 , 6 , Frankfurt , 40
 2018 , 04 , 7 , Frankfurt , 43
@@ -148,7 +148,7 @@ Frankfurt
 2018 , 04 , 26 , Frankfurt , 49
 2018 , 04 , 27 , Frankfurt , 28
 <Next>
-Oslo
+Oslo;730 , 515
 -
 2018 , 04 , 6 , Oslo , 40
 2018 , 04 , 7 , Oslo , 43
@@ -174,7 +174,7 @@ Oslo
 2018 , 04 , 27 , Oslo , 28
 Frankfurt 
 <Next>
-Helsinki
+Helsinki;1010 , 510
 -
 2018 , 04 , 6 , Helsinki , 12
 2018 , 04 , 7 , Helsinki , 12
@@ -199,7 +199,7 @@ Helsinki
 2018 , 04 , 26 , Helsinki , 12
 2018 , 04 , 27 , Helsinki , 12
 <Next>
-Roma
+Roma;690 , 1210
 -
 2018 , 04 , 6 , Roma , 40
 2018 , 04 , 7 , Roma , 43
@@ -224,7 +224,7 @@ Roma
 2018 , 04 , 26 , Roma , 49
 2018 , 04 , 27 , Roma , 28
 <Next>
-Monaco
+Monaco;543 , 1120
 -
 2018 , 04 , 6 , Monaco , 40
 2018 , 04 , 7 , Monaco , 43
@@ -249,7 +249,7 @@ Monaco
 2018 , 04 , 26 , Monaco , 49
 2018 , 04 , 27 , Monaco , 28
 <Next>
-Kiev
+Kiev;1190 , 870
 -
 2018 , 04 , 6 , Kiev , 40
 2018 , 04 , 7 , Kiev , 43

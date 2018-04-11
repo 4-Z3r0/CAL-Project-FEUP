@@ -1,20 +1,20 @@
-Porto
-Lisboa
-Madrid
-Barcelona
-Londres
-Frankfurt
-Amesterdao
-Oslo
-Helsinki
-Roma
-Monaco
-Sofia
-Kiev
-Moscovo
-Budapeste
-Varsovia
-Estocolmo
+Porto;70 , 1100
+Lisboa;20 , 1175
+Madrid;190 , 1220
+Barcelona;380 , 1170
+Londres;420 , 790
+Frankfurt;600 , 900
+Oslo;730 , 515
+Helsinki;1010 , 510
+Roma;690 , 1210
+Monaco;543 , 1120
+Kiev;1190 , 870
+Amesterdao;535 , 800 
+Sofia;1020 , 1200
+Moscovo;1210 , 625
+Budapeste;880 , 1010
+Varsovia;950 , 810
+Estocolmo;860 , 560
 !
 Porto : 3
 Lisboa - 300

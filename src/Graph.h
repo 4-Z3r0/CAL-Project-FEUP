@@ -20,7 +20,7 @@ template <class T> class Edge;
 template <class T> class Graph;
 template <class T> class Vertex;
 
-#define INF std::numeric_limits<double>::max()
+#define INF (std::numeric_limits<double>::max)()
 
 
 /************************* Vertex  **************************/
@@ -353,10 +353,14 @@ BTCustom<T> Graph<T>::makeMinTree(T &source, set<T> cities)
 		node->setNodeLeft(left);
 		q.push_back(left);
 
-		info = findClosestNotTree((*node).getInfo(), cities);
-		right = new BTNodeCustom<T>(info);
-		node->setNodeRight(right);
-		q.push_back(right);
+
+		if (!cities.empty())
+		{
+			info = findClosestNotTree((*node).getInfo(), cities);
+			right = new BTNodeCustom<T>(info);
+			node->setNodeRight(right);
+			q.push_back(right);
+		}
 		
 	}
 	return B;

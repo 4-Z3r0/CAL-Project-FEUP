@@ -29,7 +29,7 @@ void map(vector<City> m){
 	counter = 0;
 
 	for (int i = 0; i <= m.size()-2; i++){
-		sleep(2);
+		Sleep(2000);
 		j->addEdge(i, i, i + 1, 0);
 		j->rearrange();
 
@@ -38,7 +38,7 @@ void map(vector<City> m){
 
 	j->rearrange();
 
-	sleep(10);
+	Sleep(10000);
 	j->closeWindow();
 
 
@@ -82,7 +82,7 @@ void PrintGraph(Graph<City> &oi, vector<City> m = vector<City>()){
 		counter = 0;
 
 		for (int i = oi.getNumVertex(); counter < m.size()-1; i++, counteedges++, counter++){
-			sleep(2);
+			Sleep(2000);
 			j->addEdge(counteedges, i, i + 1, 0);
 			j->setEdgeColor(counteedges, "GREEN");
 			j->rearrange();
@@ -91,7 +91,7 @@ void PrintGraph(Graph<City> &oi, vector<City> m = vector<City>()){
 	}
 	j->rearrange();
 
-	sleep(10);
+	Sleep(10000);
 	j->closeWindow();
 
 	delete(j);
@@ -105,7 +105,7 @@ int checkBoundaries(int linf, int lsup) {
 
 	while (cin.fail() || nr > lsup || nr < linf) {
 		cin.clear();
-		cin.ignore(numeric_limits<streamsize>::max(), '\n');
+		cin.ignore(1000, '\n');
 		cout << "Invalid input, try again: ";
 		cin >> nr;
 	}
@@ -177,8 +177,11 @@ void graph2Menu(Graph<City> graph, vector<City> cities) {
 			cin.ignore(1000, '\n');
 			start = getOrigin(graph, cities);
 			setCities = getSet(graph, cities);
-			printVec(graph.travellingSalesman(graph.makeMinTree(start, setCities)));
-			map(graph.travellingSalesman(graph.makeMinTree(start, setCities)));
+			citiesInOrder = graph.travellingSalesman(graph.makeMinTree(start, setCities));
+			filterCities(citiesInOrder);
+			printVec(citiesInOrder);
+			PrintGraph(graph, citiesInOrder);
+			//map(citiesInOrder);
 			return;
 
 		case 2:
@@ -195,6 +198,7 @@ void graph2Menu(Graph<City> graph, vector<City> cities) {
 			startDate = getStartDate();
 			endDate = getEndDate();
 			getCheapestStays(citiesInOrder, startDate, endDate);
+			PrintGraph(graph, citiesInOrder);
 			return;
 
 		case 3:

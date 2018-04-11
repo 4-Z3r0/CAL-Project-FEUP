@@ -11,6 +11,7 @@
 #include <sys/types.h>
 #include <netdb.h>
 #else
+#define _WINSOCK_DEPRECATED_NO_WARNINGS
 #include <winsock2.h>
 #endif
 

@@ -2,6 +2,7 @@
 #include "FileIO.h"
 #include "Utilities.h"
 #include <string>
+#include "SSearch.h"
 using namespace std;
 
 
@@ -251,10 +252,15 @@ void mainMenu(Graph<City> graph, vector<City> cities) {
 int main() {
 
 	Graph<City> graph;
+	vector<int> pref;
 	vector<City> cities;
+	string a;
+	string p = "aabbccdd";
+	string t = "abbccdd";
+	cout << EditDistance(p, t) << endl;
+	cin >> a;
 
-
-	mainMenu(graph,cities);
+	//mainMenu(graph,cities);
 
 
 

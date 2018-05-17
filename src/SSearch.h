@@ -6,7 +6,19 @@
 
 using namespace std;
 
+int minThreeElem(int a, int b, int c)
+{
+	if (a > b && a > c)
+		return min(b, c);
+	else if (b > c)
+		return min(a, c);
+	else
+		return min(a, b);
+}
 
+/*
+*Auxiliary function for kmpMatcher computes the prefix of a given pattern.
+*/
 std::vector<int> prefixCalc(std::string pattern)
 {
 	std::vector<int> prefix;
@@ -28,7 +40,12 @@ std::vector<int> prefixCalc(std::string pattern)
 
 
 
-
+/*
+*@brief Function returns the number of occurences of a certain pattern(string) in a text(string).
+*@param text - text where we search the pattern
+*@param pattern - pattern being searched
+*@return number of occurences of the pattern in the string
+*/
 int kmpMatcher(std::string text, std::string pattern) {
 
 	unsigned int textSize = text.length();
@@ -66,31 +83,36 @@ int kmpMatcher(std::string text, std::string pattern) {
 	return count;
 }
 
-//No optimization
-//Testing required
-//not working
+//No optimization yet implemented.
+/*
+*@brief Returns the edit distance between two strings.
+*@param pattern one of the strings to compare
+*@param text one of the strings to compare
+*@return an integer that represents the edit distance between the two strings
+*/
+
 int EditDistance(string pattern, string text)
 {
 	vector<vector<int>> matrix;
 
-	matrix.resize(pattern.size());
+	matrix.resize(pattern.size() + 1);
 
 	for (int h = 0; h < matrix.size(); h++)
-		matrix.at(h).resize(text.size());
+		matrix.at(h).resize(text.size() +1);
 
-	for (int i = 0; i < pattern.size(); i++)
+	for (int i = 0; i <= pattern.size(); i++)
 		matrix[i][0] = i;
 
-	for (int j = 0; j < text.size(); j++)
+	for (int j = 0; j <= text.size(); j++)
 		matrix[0][j] = j;
 
-	for(int i = 1; i < pattern.size(); i++)
-		for (int j = 1; j < text.size(); j++)
+	for(int i = 1; i <= pattern.size(); i++)
+		for (int j = 1; j <= text.size(); j++)
 		{
-			if (pattern.at(i) == text.at(j))
+			if (pattern.at(i-1) == text.at(j-1))
 				matrix[i][j] = matrix[i - 1][j - 1];
 			else
-				matrix[i][j] = 1 + min(matrix[i - 1][j - 1], matrix[i - 1][j], matrix[i][j - 1]);
+				matrix[i][j] = 1 + minThreeElem(matrix[i - 1][j - 1], matrix[i - 1][j], matrix[i][j - 1]);
 		}
 	return matrix[pattern.size()][text.size()];
 

@@ -255,9 +255,9 @@ int main() {
 	vector<int> pref;
 	vector<City> cities;
 	string a;
-	string p = "aabbccdd";
-	string t = "abbccdd";
-	cout << EditDistance(p, t) << endl;
+	string t = "aabababaabaabababababababaaaaaaaaaabbbabab";
+	string p = "aaba";
+	cout << kmpMatcher(t, p) << endl;
 	cin >> a;
 
 	//mainMenu(graph,cities);

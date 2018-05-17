@@ -1,0 +1,41 @@
+Torre dos Clerigo
+Praca da Republica
+Palacio da Bolsa
+Se Catedral
+Igreja dos Congregados
+Paco Episcopal
+Livraria Lello
+Capela das Almas
+Palacio do Freixo
+Igreja da Lapa
+Ponte D.Luis
+Igreja do Carmo
+Estacao de Sao Bento
+!
+Mosteiro dos Jeronimos
+Torre de Belem
+Palacio Nacional da Ajuda
+Castelo de Sao Jorge
+Elevador de Santa Justa
+Convento do Carmo
+Padrao dos Descobrimentos
+Panteao Nacional
+Igreja de Sao Roque´
+!
+Madrid Monumento Teste
+!
+Barcelona Monumento Teste
+!
+Londres Monumento Teste
+!
+Frankfurt Monumento Teste
+!
+Oslo Monumento Teste
+!
+Helsinki Monumento Teste
+!
+Roma Monumento Teste
+!
+Monaco Monumento Teste
+!
+Kiev Monumento Teste

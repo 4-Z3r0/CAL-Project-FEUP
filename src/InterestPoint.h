@@ -11,4 +11,6 @@ private:
 	string name;
 public:
 	InterestPoint(string name);
+	InterestPoint();
+	void setName(string name);
 };

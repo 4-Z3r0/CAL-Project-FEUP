@@ -300,7 +300,7 @@ void mainMenu(Graph<City> graph, vector<City> cities) {
 
 
 int main() {
-
+	
 	Graph<City> graph;
 	vector<int> pref;
 	vector<City> cities;
@@ -311,7 +311,6 @@ int main() {
 	cin >> a;*/
 
 	mainMenu(graph,cities);
-
 
 
 	/*set<City> setCities = { findCity(cities,"Madrid"),findCity(cities,"Lisboa"),findCity(cities,"Londres"),findCity(cities,"Barcelona") };

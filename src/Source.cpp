@@ -114,7 +114,7 @@ int checkBoundaries(int linf, int lsup) {
 	return nr;
 }
 
-void graph1Menu(Graph<City> graph, vector<City> cities) {
+void graph1Menu(Graph<City> graph, vector<City> cities, int opt) {
 	int choice = 0;
 
 	while (choice != 2) {
@@ -131,13 +131,19 @@ void graph1Menu(Graph<City> graph, vector<City> cities) {
 		vector<City> l;
 		switch (choice) {
 		case 1:
-			cout << endl;
-			cin.ignore(1000, '\n');
-			alpha = getOrigin(graph, cities);
-			beta = getArrival(graph, cities);
-			l = graph.showShortestPath(alpha,beta);
-			PrintGraph(graph,l);
+			if (opt == 1) {
+				cout << endl;
+				cin.ignore(1000, '\n');
+				alpha = getOrigin(graph, cities);
+				beta = getArrival(graph, cities);
+				l = graph.showShortestPath(alpha, beta);
+				PrintGraph(graph, l);
+			}
+			else {
+				//searchPointsOfInterest();
+			}
 			break;
+			
 
 		case 2:
 			cout << endl << endl;
@@ -149,7 +155,7 @@ void graph1Menu(Graph<City> graph, vector<City> cities) {
 	}
 }
 
-void graph2Menu(Graph<City> graph, vector<City> cities) {
+void graph2Menu(Graph<City> graph, vector<City> cities,int opt) {
 	int choice = 0;
 	Graph <City> orginal = graph;
 	vector<City> orginalCity = cities;
@@ -172,41 +178,88 @@ void graph2Menu(Graph<City> graph, vector<City> cities) {
 		Date endDate;
 		switch (choice) {
 		case 1:
-			graph = orginal;
-			cities = orginalCity;
-			cout << endl;
-			cin.ignore(1000, '\n');
-			start = getOrigin(graph, cities);
-			setCities = getSet(graph, cities);
-			citiesInOrder = graph.travellingSalesman(graph.makeMinTree(start, setCities));
-			filterCities(citiesInOrder);
-			printVec(citiesInOrder);
-			PrintGraph(graph, citiesInOrder);
-			//map(citiesInOrder);
-			return;
-
+			if (opt == 1) {
+				graph = orginal;
+				cities = orginalCity;
+				cout << endl;
+				cin.ignore(1000, '\n');
+				start = getOrigin(graph, cities);
+				setCities = getSet(graph, cities);
+				citiesInOrder = graph.travellingSalesman(graph.makeMinTree(start, setCities));
+				filterCities(citiesInOrder);
+				printVec(citiesInOrder);
+				PrintGraph(graph, citiesInOrder);
+				//map(citiesInOrder);
+				return;
+			}
+			else {
+				//searchPointsOfInterest();
+				return;
+			}
 		case 2:
-			graph = orginal;
-			cities = orginalCity;
-			cout << endl << endl;
-			cout << endl;
-			cin.ignore(1000, '\n');
-			start = getOrigin(graph, cities);
-			setCities = getSet(graph, cities);
-			citiesInOrder = graph.travellingSalesman(graph.makeMinTree(start, setCities));
-			filterCities(citiesInOrder);
-			printVec(citiesInOrder);
-			startDate = getStartDate();
-			endDate = getEndDate();
-			getCheapestStays(citiesInOrder, startDate, endDate);
-			PrintGraph(graph, citiesInOrder);
-			return;
+			if (opt == 1) {
+				graph = orginal;
+				cities = orginalCity;
+				cout << endl << endl;
+				cout << endl;
+				cin.ignore(1000, '\n');
+				start = getOrigin(graph, cities);
+				setCities = getSet(graph, cities);
+				citiesInOrder = graph.travellingSalesman(graph.makeMinTree(start, setCities));
+				filterCities(citiesInOrder);
+				printVec(citiesInOrder);
+				startDate = getStartDate();
+				endDate = getEndDate();
+				getCheapestStays(citiesInOrder, startDate, endDate);
+				PrintGraph(graph, citiesInOrder);
+				return;
+			}
+			else {
+				//searchPointsOfInterest();
+				return;
+			}
+			
 
 		case 3:
 			cout << endl << endl;
 			break;
 
 
+		}
+	}
+}
+
+void mainMenu2(Graph<City> graph, vector<City> cities,int opt) {
+	int choice = 0;
+
+	while (choice != 3) {
+		cout << "____________________________________________________" << endl;
+		cout << "|                  MAIN MENU 2                     |" << endl;
+		cout << "|                                                  |" << endl;
+		cout << "|        Type your option:                         |" << endl;
+		cout << "|     1) Graph with Scaling Flights                |" << endl;
+		cout << "|     2) Complete Graph                            |" << endl;
+		cout << "|     3) Back                                      |" << endl;
+		cout << "|    Option: ";
+
+		choice = checkBoundaries(1, 3);
+
+
+		switch (choice) {
+		case 1:
+			graph = getGraph1FromFile(cities);
+
+			graph1Menu(graph, cities,opt);
+			break;
+
+		case 2:
+			graph = getGraph2FromFile(cities);
+
+			graph2Menu(graph, cities,opt);
+			break;
+		case 3:
+			cout << endl;
+			break;
 		}
 	}
 }
@@ -219,8 +272,8 @@ void mainMenu(Graph<City> graph, vector<City> cities) {
 		cout << "|                  MAIN MENU                       |" << endl;
 		cout << "|                                                  |" << endl;
 		cout << "|        Type your option:                         |" << endl;
-		cout << "|     1) Graph with Scaling Flights                |" << endl;
-		cout << "|     2) Complete Graph                            |" << endl;
+		cout << "|     1) Search Flights by City                    |" << endl;
+		cout << "|     2) Search Flights by Points of Interest      |" << endl;
 		cout << "|     3) Exit                                      |" << endl;
 		cout << "|    Option: ";
 
@@ -229,15 +282,11 @@ void mainMenu(Graph<City> graph, vector<City> cities) {
 
 		switch (choice) {
 		case 1:
-			graph = getGraph1FromFile(cities);
-
-			graph1Menu(graph, cities);
+			mainMenu2(graph, cities,1);
 			break;
 
 		case 2:
-			graph = getGraph2FromFile(cities);
-
-			graph2Menu(graph, cities);
+			mainMenu2(graph, cities, 2);
 			break;
 		case 3:
 			cout << endl;
@@ -249,18 +298,19 @@ void mainMenu(Graph<City> graph, vector<City> cities) {
 
 
 
+
 int main() {
 
 	Graph<City> graph;
 	vector<int> pref;
 	vector<City> cities;
-	string a;
+	/*string a;
 	string t = "aabababaabaabababababababaaaaaaaaaabbbabab";
 	string p = "aaba";
 	cout << kmpMatcher(t, p) << endl;
-	cin >> a;
+	cin >> a;*/
 
-	//mainMenu(graph,cities);
+	mainMenu(graph,cities);
 
 
 

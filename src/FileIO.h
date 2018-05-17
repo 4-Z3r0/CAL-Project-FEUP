@@ -59,7 +59,9 @@ void addMultipleVertices(Graph<City> &g, Vertex<City>* v, vector<int> &prices)
 		count++;
 	}
 }
+void loadGraph1PointsOfInterest(vector<City> &cities) {
 
+}
 
 Graph<City> getGraph1FromFile(vector<City> &cities)
 {

@@ -248,7 +248,7 @@ void mainMenu2(Graph<City> graph, vector<City> cities,int opt) {
 		switch (choice) {
 		case 1:
 			graph = getGraph1FromFile(cities);
-
+			loadGraph1PointsOfInterest(cities);
 			graph1Menu(graph, cities,opt);
 			break;
 

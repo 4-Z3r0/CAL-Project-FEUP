@@ -59,7 +59,28 @@ void addMultipleVertices(Graph<City> &g, Vertex<City>* v, vector<int> &prices)
 		count++;
 	}
 }
+void loadGraph1PointsOfInterest(vector<City> &cities) {
+	ifstream g1;
+	string s;
+	int idx = 0;
+	InterestPoint temp;
+	g1.open("InterestPoints1.txt");
+	if (g1.is_open())
+	{
+		while (getline(g1, s))
+		{
+			if (s == "!") {
+				idx++;
+			}
+			temp = InterestPoint(s);
+			cities.at(idx).addInterestPoint(temp);
+			
+		}
+		g1.close();
 
+	}
+
+}
 
 Graph<City> getGraph1FromFile(vector<City> &cities)
 {
@@ -116,7 +137,27 @@ Graph<City> getGraph1FromFile(vector<City> &cities)
 	}
 	return g;
 }
+void loadGraph2PointsOfInterest(vector<City> &cities) {
+	ifstream g1;
+	string s;
+	int idx = 0;
+	InterestPoint temp;
+	g1.open("InterestPoints2.txt");
+	if (g1.is_open())
+	{
+		while (getline(g1, s))
+		{
+			if (s == "!") {
+				idx++;
+			}
+			temp = InterestPoint(s);
+			cities.at(idx).addInterestPoint(temp);
 
+		}
+		g1.close();
+
+	}
+}
 Graph<City> getGraph2FromFile(vector<City> &cities)
 {
 	cities.clear();

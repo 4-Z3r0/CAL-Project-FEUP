@@ -39,6 +39,16 @@ void City::addStay(Stay stay)
 	stays.push_back(stay);
 }
 
+void City::addInterestPoint(InterestPoint intpoint)
+{
+	this->interestPoints.push_back(intpoint);
+}
+
+std::vector<InterestPoint> City::getInterestPoints()
+{
+	return this->interestPoints;
+}
+
 bool operator==(City & c1, const City & c2) {
 	return c1.getName() == c2.getName();
 }

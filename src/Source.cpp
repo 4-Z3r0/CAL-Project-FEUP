@@ -12,7 +12,7 @@ void UI()
 
 }
 
-void map(vector<City> m){
+void map(vector<City> m) {
 	GraphViewer *j = new GraphViewer(3000, 3000, false);
 
 	int counter = 0;
@@ -22,14 +22,14 @@ void map(vector<City> m){
 	j->defineEdgeCurved(false);
 	j->defineEdgeColor("RED");
 
-	for(int i = 0; i < m.size(); i++){
+	for (int i = 0; i < m.size(); i++) {
 		j->addNode(i, m[i].getCoordinates().first, m[i].getCoordinates().second);
 		j->setVertexLabel(i, m[i].getName());
 	}
 
 	counter = 0;
 
-	for (int i = 0; i <= m.size()-2; i++){
+	for (int i = 0; i <= m.size() - 2; i++) {
 		Sleep(2000);
 		j->addEdge(i, i, i + 1, 0);
 		j->rearrange();
@@ -46,7 +46,7 @@ void map(vector<City> m){
 	delete(j);
 }
 
-void PrintGraph(Graph<City> &oi, vector<City> m = vector<City>()){
+void PrintGraph(Graph<City> &oi, vector<City> m = vector<City>()) {
 	vector<Edge<City>> ma;
 	vector<Vertex<City> *> k = oi.getVertexSet();
 	GraphViewer *j = new GraphViewer(1900, 1425, false);
@@ -56,33 +56,33 @@ void PrintGraph(Graph<City> &oi, vector<City> m = vector<City>()){
 	int counter = 0;
 	int counteedges = 0;
 
-	for(int i = 0; i < oi.getNumVertex(); i++){
+	for (int i = 0; i < oi.getNumVertex(); i++) {
 		j->addNode(k[i]->getInfo().getIndex(), k[i]->getInfo().getCoordinates().first, k[i]->getInfo().getCoordinates().second);
 		j->setVertexLabel(k[i]->getInfo().getIndex(), k[i]->getInfo().getName());
-		j->setVertexIcon(k[i]->getInfo().getIndex(),"airicon.png");
+		j->setVertexIcon(k[i]->getInfo().getIndex(), "airicon.png");
 
 	}
 
-	for(int i = 0; i < oi.getNumVertex(); i++){
+	for (int i = 0; i < oi.getNumVertex(); i++) {
 		ma = k[i]->getAdj();
-		for(int l = 0; l < ma.size(); l++, counteedges++){
-			j->addEdge(counteedges, k[i]->getInfo().getIndex(),ma[l].getVertex()->getInfo().getIndex(), 0);
+		for (int l = 0; l < ma.size(); l++, counteedges++) {
+			j->addEdge(counteedges, k[i]->getInfo().getIndex(), ma[l].getVertex()->getInfo().getIndex(), 0);
 			j->rearrange();
 		}
 	}
 
 	j->rearrange();
 
-	if(m.size() != 0){
-		for(int i = oi.getNumVertex(); i <= m.size() + oi.getNumVertex()-1; i++){
-			j->addNode(i, m[i-oi.getNumVertex()].getCoordinates().first, m[i-oi.getNumVertex()].getCoordinates().second);
-			j->setVertexLabel(i, m[i-oi.getNumVertex()].getName());
+	if (m.size() != 0) {
+		for (int i = oi.getNumVertex(); i <= m.size() + oi.getNumVertex() - 1; i++) {
+			j->addNode(i, m[i - oi.getNumVertex()].getCoordinates().first, m[i - oi.getNumVertex()].getCoordinates().second);
+			j->setVertexLabel(i, m[i - oi.getNumVertex()].getName());
 			j->setVertexIcon(i, "airicon.png");
 		}
 
 		counter = 0;
 
-		for (int i = oi.getNumVertex(); counter < m.size()-1; i++, counteedges++, counter++){
+		for (int i = oi.getNumVertex(); counter < m.size() - 1; i++, counteedges++, counter++) {
 			Sleep(2000);
 			j->addEdge(counteedges, i, i + 1, 0);
 			j->setEdgeColor(counteedges, "GREEN");
@@ -131,15 +131,15 @@ void graph1Menu(Graph<City> graph, vector<City> cities) {
 		vector<City> l;
 		switch (choice) {
 		case 1:
-				cout << endl;
-				cin.ignore(1000, '\n');
-				alpha = getOrigin(graph, cities);
-				beta = getArrival(graph, cities);
-				l = graph.showShortestPath(alpha, beta);
-				PrintGraph(graph, l);
-			
+			cout << endl;
+			cin.ignore(1000, '\n');
+			alpha = getOrigin(graph, cities);
+			beta = getArrival(graph, cities);
+			l = graph.showShortestPath(alpha, beta);
+			PrintGraph(graph, l);
+
 			break;
-			
+
 		case 2:
 			cout << endl << endl;
 			break;
@@ -173,36 +173,36 @@ void graph2Menu(Graph<City> graph, vector<City> cities) {
 		Date endDate;
 		switch (choice) {
 		case 1:
-			
-				graph = orginal;
-				cities = orginalCity;
-				cout << endl;
-				cin.ignore(1000, '\n');
-				start = getOrigin(graph, cities);
-				setCities = getSet(graph, cities);
-				citiesInOrder = graph.travellingSalesman(graph.makeMinTree(start, setCities));
-				filterCities(citiesInOrder);
-				printVec(citiesInOrder);
-				PrintGraph(graph, citiesInOrder);
-				//map(citiesInOrder);
-				return;
-			
+
+			graph = orginal;
+			cities = orginalCity;
+			cout << endl;
+			cin.ignore(1000, '\n');
+			start = getOrigin(graph, cities);
+			setCities = getSet(graph, cities);
+			citiesInOrder = graph.travellingSalesman(graph.makeMinTree(start, setCities));
+			filterCities(citiesInOrder);
+			printVec(citiesInOrder);
+			PrintGraph(graph, citiesInOrder);
+			//map(citiesInOrder);
+			return;
+
 		case 2:
-				graph = orginal;
-				cities = orginalCity;
-				cout << endl << endl;
-				cout << endl;
-				cin.ignore(1000, '\n');
-				start = getOrigin(graph, cities);
-				setCities = getSet(graph, cities);
-				citiesInOrder = graph.travellingSalesman(graph.makeMinTree(start, setCities));
-				filterCities(citiesInOrder);
-				printVec(citiesInOrder);
-				startDate = getStartDate();
-				endDate = getEndDate();
-				getCheapestStays(citiesInOrder, startDate, endDate);
-				PrintGraph(graph, citiesInOrder);
-				return;
+			graph = orginal;
+			cities = orginalCity;
+			cout << endl << endl;
+			cout << endl;
+			cin.ignore(1000, '\n');
+			start = getOrigin(graph, cities);
+			setCities = getSet(graph, cities);
+			citiesInOrder = graph.travellingSalesman(graph.makeMinTree(start, setCities));
+			filterCities(citiesInOrder);
+			printVec(citiesInOrder);
+			startDate = getStartDate();
+			endDate = getEndDate();
+			getCheapestStays(citiesInOrder, startDate, endDate);
+			PrintGraph(graph, citiesInOrder);
+			return;
 
 		case 3:
 			cout << endl << endl;
@@ -270,13 +270,23 @@ void searchMenu(Graph<City> graph, vector<City> cities) {
 
 		switch (choice) {
 		case 1:
-			
+
 			break;
 
 		case 2:
 			start = readFirstCity(cities);
-			poi = readInputPoi();
-			setCities = POIfromFile(poi, cities, aproxVec);
+			do
+			{
+				poi = readInputPoi();
+				setCities = POIfromFile(poi, cities, aproxVec);
+				if (!aproxVec.empty())
+				{
+					cout << "Some of the points of interest you gave us were not recognized here are some sugestions: \n";
+					printPair(aproxVec);
+					setCities.clear();
+					poi.clear();
+				}
+			} while (!aproxVec.empty());
 			citiesInOrder = graph.travellingSalesman(graph.makeMinTree(start, setCities));
 			filterCities(citiesInOrder);
 			printVec(citiesInOrder);
@@ -284,7 +294,6 @@ void searchMenu(Graph<City> graph, vector<City> cities) {
 			{
 				cout << it->getName() << endl;
 			}
-			printPair(aproxVec);
 			//PrintGraph(graph, citiesInOrder);
 			break;
 		case 3:
@@ -332,11 +341,12 @@ void mainMenu(Graph<City> graph, vector<City> cities) {
 
 
 int main() {
-	
+
 	Graph<City> graph;
 	vector<int> pref;
 	vector<City> cities;
 	getGraph2FromFile(cities);
+	/*
 	vector<pair<string, string>> aproxVec;
 	string a;
 	vector<string> poi = { "Palacio da Bola", "Torre dos Clerigo", "Ponte D.Luis", "Torre de Bele", "Panteao Nacional","Big Ben", "Palacio Espanhol" , "Parlame", "Catedral" };
@@ -344,7 +354,7 @@ int main() {
 	/*string t = "aabababaabaabababababababaaaaaaaaaabbbabab";
 	string p = "aaba";
 	cout << kmpMatcher(t, p) << endl;
-	*/
+
 	res = POIfromFile(poi, cities, aproxVec);
 	for (auto it = res.begin(); it != res.end(); it++)
 	{
@@ -352,8 +362,8 @@ int main() {
 	}
 	printPair(aproxVec);
 	system("pause");
-	
-	//mainMenu(graph,cities);
+	*/
+	mainMenu(graph, cities);
 
 
 	/*set<City> setCities = { findCity(cities,"Madrid"),findCity(cities,"Lisboa"),findCity(cities,"Londres"),findCity(cities,"Barcelona") };

@@ -242,6 +242,20 @@ void filterCities(vector<City> &cities) {
 	}
 }
 
+
+void eliminateFalseAproxPositives(vector<pair<string, string>> &vecAprox, set<string> vecRes)
+{
+	for (size_t i = 0; i < vecAprox.size(); i++)
+	{
+		if (vecRes.find(vecAprox.at(i).first) != vecRes.end())
+		{
+			vecAprox.erase(vecAprox.begin() + i);
+			i--;
+		}
+	}
+}
+
+
 /* 
 *@brief Checks the file for the list of points of interest(poi) given as argument
 *@param poi points of interest the user wants to visit
@@ -258,9 +272,10 @@ set<City> POIfromFile(vector<string> poi, vector<City> const &cities, vector<pai
 	int min = 4;
 	int index = 0;
 	set<City> vecRet;
+	set<string> poiAdded;
 	bool flag = false;
 
-	aproxRes.empty();
+	aproxRes.clear();
 
 	g1.open("InterestPoints2.txt");
 
@@ -280,24 +295,30 @@ set<City> POIfromFile(vector<string> poi, vector<City> const &cities, vector<pai
 					if (kmpMatcher(text, poi.at(i)) > 0 && flag)
 					{
 						if (vecRet.find(cities.at(index)) == vecRet.end())
+						{
 							vecRet.emplace(cities.at(index));
+							poiAdded.emplace(poi.at(i));
+						}
 					}
 					text.clear();
 					index++;
-					flag = false;
 				}
 				text.append(s);
 				text.append(" ");
 			}
+			flag = false;
 			g1.clear();
 			g1.seekg(0, ios::beg);
 			index = 0;
 		}
 	}
 	g1.close();
+	eliminateFalseAproxPositives(aproxRes, poiAdded);
 
 	return vecRet;
 }
+
+
 
 /*
 *@brief prints de contents of a vector of pairs (first : second)

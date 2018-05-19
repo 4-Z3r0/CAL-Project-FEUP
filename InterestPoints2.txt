@@ -21,32 +21,77 @@ Elevador de Santa Justa
 Convento do Carmo
 Padrao dos Descobrimentos
 Panteao Nacional
-Igreja de Sao Roque´
+Igreja de Sao Roque
 !
-Madrid Monumento Teste
+Catedral de Almudena
 Palacio Espanhol
+Palacio Real de Madrid
+Museu do Prado
+Las Ventas
+Estadio Real Madrid
+Museu Sorolla
+Praca Maior
+Porta do Sol
 !
-Barcelona Monumento Teste
+La Barceloneta
 Estadio Futebol
+La Sagrada Familia
+Museu Picasso
+Bairro Gotico
+Las Ramblas
+Mercado La Boqueira
 !
-Londres Monumento Teste
 Big Ben
-BigBen
-TopBig Ben
+Palacio de Westminster
+Abadia de Westminster
 London Eye
 Parlament
+Piccadilly Circus
+Tower Bridge
+London Tower
 !
 Frankfurt Monumento Teste
+Portao de Brandemburgo
+Palacio de Charlottenburg
+Palacio Bellevue
+Coluna da Vitoria
+Museu Altes
 !
-Oslo Monumento Teste
+Catedral de Oslo
+Fjord de Oslo
+Galeria Nacional
+Museu Ibsen
+Museu Emanuel Vigeland
+Porta Karl Johans
+Museu Munch
+Cais de Oslo
 !
 Helsinki Monumento Teste
+Finnair Skywheel
+Suomenlinna
+Praca do Mercado
+Ateneum
+Catedral de Uspenski
+Museu do Design
 !
-Roma Monumento Teste
 Coliseu
 Catedral
+Fonte de Trevi
+Basilica de Sao Pedro
+Panteao
+Praca da Espanha
+Altar da Patria
+Capitolio
 !
 Monaco Monumento Teste
+Casino de Monte Carlo
+Palacio do Principe de Monaco
+Costa Azul
+Museu Oceanografico
 !
-Kiev Monumento Teste
 Grandes Portas de Kiev
+Praca da Independencia
+Catedral de Santa Sofia de Kiev
+Mosteiro de Kiev-Petchersk
+Pecherska Lavra
+Mosteiro das Cavernas

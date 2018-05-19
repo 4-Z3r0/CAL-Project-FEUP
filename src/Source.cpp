@@ -267,7 +267,7 @@ void searchMenu(Graph<City> graph, vector<City> cities) {
 		vector<City> citiesInOrder;
 		vector<string> poi;
 		vector<pair<string, string>> aproxVec;
-
+		vector<City> tempCities;
 		switch (choice) {
 		case 1:
 			start = readFirstCity(cities);
@@ -288,12 +288,19 @@ void searchMenu(Graph<City> graph, vector<City> cities) {
 				setCities = POIfromFile(poi, cities, aproxVec);
 				if (!aproxVec.empty())
 				{
+
+					for (set<City>::iterator it = setCities.begin(); it != setCities.end(); it++) {
+						tempCities.push_back(*it);
+					}
 					cout << "Some of the points of interest you gave us were not recognized here are some sugestions: \n";
 					printPair(aproxVec);
 					setCities.clear();
 					poi.clear();
 				}
 			} while (!aproxVec.empty());
+			for (unsigned int i = 0; i < tempCities.size(); i++) {
+				setCities.insert(tempCities.at(i));
+			}
 			citiesInOrder = graph.travellingSalesman(graph.makeMinTree(start, setCities));
 			filterCities(citiesInOrder);
 			printVec(citiesInOrder);

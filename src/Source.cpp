@@ -278,7 +278,8 @@ void searchMenu(Graph<City> graph, vector<City> cities) {
 			citiesInOrder = graph.travellingSalesman(graph.makeMinTree(start, setCities));
 			filterCities(citiesInOrder);
 			printVec(citiesInOrder);
-			break;
+			PrintGraph(graph, citiesInOrder);
+			return;
 
 		case 2:
 			start = readFirstCity(cities);
@@ -308,7 +309,7 @@ void searchMenu(Graph<City> graph, vector<City> cities) {
 			{
 				cout << it->getName() << endl;
 			}
-			//PrintGraph(graph, citiesInOrder);
+			PrintGraph(graph, citiesInOrder);
 			return;
 		case 3:
 			cout << endl;

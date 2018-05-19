@@ -295,7 +295,7 @@ void searchMenu(Graph<City> graph, vector<City> cities) {
 				cout << it->getName() << endl;
 			}
 			//PrintGraph(graph, citiesInOrder);
-			break;
+			return;
 		case 3:
 			cout << endl;
 			break;

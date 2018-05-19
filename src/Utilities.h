@@ -353,14 +353,25 @@ City readFirstCity(vector<City> &cities) {
 	vector<string> poi;
 	vector<pair<string, string>> aproxVec;
 	set<City> setCities;
-
-	cout << "What is the first destination you would like to visit? \n";
 	cin.ignore(1000, '\n');
-	answer = checkString(answer);
-	poi.push_back(answer);
+	do
+	{
+		cout << "What is the first destination you would like to visit? \n";
+		
+		answer = checkString(answer);
+		poi.push_back(answer);
 
-	setCities = POIfromFile(poi, cities, aproxVec);
-
+		setCities = POIfromFile(poi, cities, aproxVec);
+		if (setCities.size() == 0) {
+			cout << "There is no Point of Interest with that name \n";
+			if (aproxVec.size() > 0) {
+				cout << "Did you mean? \n";
+				printPair(aproxVec);
+				aproxVec.clear();
+				poi.clear();
+			}
+		}
+	} while (setCities.size() == 0);
 	set<City>::iterator it = setCities.begin();
 	return *it;
 

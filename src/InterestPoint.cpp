@@ -5,6 +5,7 @@ InterestPoint::InterestPoint(string name) {
 }
 
 InterestPoint::InterestPoint() {
+	this->name = "Monumento";
 }
 
 void InterestPoint::setName(string name)

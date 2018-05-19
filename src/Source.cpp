@@ -303,14 +303,17 @@ int main() {
 	
 	Graph<City> graph;
 	vector<int> pref;
-	vector<City> cities;
-	/*string a;
-	string t = "aabababaabaabababababababaaaaaaaaaabbbabab";
+	vector<City> cities = {City("Porto") , City("Lisboa"), City("Madrid"), City("Barcelona") };
+
+	string a;
+	/*string t = "aabababaabaabababababababaaaaaaaaaabbbabab";
 	string p = "aaba";
 	cout << kmpMatcher(t, p) << endl;
-	cin >> a;*/
+	*/
+	cout << POIfromFile("Livraria Lelo", cities).getName() << endl;
+	cin >> a;
 
-	mainMenu(graph,cities);
+	//mainMenu(graph,cities);
 
 
 	/*set<City> setCities = { findCity(cities,"Madrid"),findCity(cities,"Lisboa"),findCity(cities,"Londres"),findCity(cities,"Barcelona") };

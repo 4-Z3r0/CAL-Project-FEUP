@@ -6,6 +6,7 @@
 
 using namespace std;
 
+//Returns the minimum between three elements
 int minThreeElem(int a, int b, int c)
 {
 	if (a > b && a > c)

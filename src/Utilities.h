@@ -1,6 +1,8 @@
 #pragma once
 #include"Graph.h"
 #include "City.h"
+#include "SSearch.h"
+#include<fstream>
 #include<cmath>
 
 using namespace std;
@@ -143,6 +145,7 @@ void getCheapestStays(vector<City> cities, Date start, Date end) {
 	printStaysRoute(stays,firstValidStay);
 
 }
+
 City findCity(vector<City>  const cities, string name) {
 	City city;
 	for (unsigned int i = 0; i < cities.size(); i++) {
@@ -236,6 +239,67 @@ void filterCities(vector<City> &cities) {
 			cities.erase(cities.begin() + i);
 		}
 	}
+}
+
+//Checks the file for exact occurences of a point of interest returns the city where it is present.
+City POIfromFile(string poi, vector<City> &cities)
+{
+	ifstream g1;
+	string s;
+	City c1;
+	string text = "";
+	string aprox = "";
+	string resp;
+	int min = 4;
+	int index = 0;
+	g1.open("InterestPoints1.txt");
+	if (g1.is_open())
+	{
+		while (1)
+		{
+			while (getline(g1, s))
+			{
+				if (EditDistance(poi, s) < min)
+				{
+					min = EditDistance(poi, s);
+					aprox = s;
+				}
+
+				if (s == "!") {
+					if (kmpMatcher(text, poi) > 0)
+					{
+						g1.close();
+						return cities.at(index);
+					}
+					text.clear();
+					index++;
+				}
+				text.append(s);
+				text.append(" ");
+			}
+			if (aprox != "")
+			{
+				cout << "Did you mean " << aprox << " ?(y/n)" << endl;
+				cin >> resp;
+				if (resp == "y")
+				{
+					g1.clear();
+					g1.seekg(0, ios::beg);
+					text.clear();
+					poi = aprox;
+					index = 0;
+				}
+				else if (resp == "n")
+				{
+					cout << "Point of interest given does not exist. \n";
+					return c1;
+				}
+			}
+		}
+		
+	}
+	return c1;
+
 }
 
 

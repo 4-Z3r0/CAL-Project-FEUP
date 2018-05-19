@@ -114,7 +114,7 @@ int checkBoundaries(int linf, int lsup) {
 	return nr;
 }
 
-void graph1Menu(Graph<City> graph, vector<City> cities, int opt) {
+void graph1Menu(Graph<City> graph, vector<City> cities) {
 	int choice = 0;
 
 	while (choice != 2) {
@@ -131,20 +131,15 @@ void graph1Menu(Graph<City> graph, vector<City> cities, int opt) {
 		vector<City> l;
 		switch (choice) {
 		case 1:
-			if (opt == 1) {
 				cout << endl;
 				cin.ignore(1000, '\n');
 				alpha = getOrigin(graph, cities);
 				beta = getArrival(graph, cities);
 				l = graph.showShortestPath(alpha, beta);
 				PrintGraph(graph, l);
-			}
-			else {
-				//searchPointsOfInterest();
-			}
+			
 			break;
 			
-
 		case 2:
 			cout << endl << endl;
 			break;
@@ -155,7 +150,7 @@ void graph1Menu(Graph<City> graph, vector<City> cities, int opt) {
 	}
 }
 
-void graph2Menu(Graph<City> graph, vector<City> cities,int opt) {
+void graph2Menu(Graph<City> graph, vector<City> cities) {
 	int choice = 0;
 	Graph <City> orginal = graph;
 	vector<City> orginalCity = cities;
@@ -178,7 +173,7 @@ void graph2Menu(Graph<City> graph, vector<City> cities,int opt) {
 		Date endDate;
 		switch (choice) {
 		case 1:
-			if (opt == 1) {
+			
 				graph = orginal;
 				cities = orginalCity;
 				cout << endl;
@@ -191,13 +186,8 @@ void graph2Menu(Graph<City> graph, vector<City> cities,int opt) {
 				PrintGraph(graph, citiesInOrder);
 				//map(citiesInOrder);
 				return;
-			}
-			else {
-				//searchPointsOfInterest();
-				return;
-			}
+			
 		case 2:
-			if (opt == 1) {
 				graph = orginal;
 				cities = orginalCity;
 				cout << endl << endl;
@@ -213,12 +203,6 @@ void graph2Menu(Graph<City> graph, vector<City> cities,int opt) {
 				getCheapestStays(citiesInOrder, startDate, endDate);
 				PrintGraph(graph, citiesInOrder);
 				return;
-			}
-			else {
-				//searchPointsOfInterest();
-				return;
-			}
-			
 
 		case 3:
 			cout << endl << endl;
@@ -229,7 +213,7 @@ void graph2Menu(Graph<City> graph, vector<City> cities,int opt) {
 	}
 }
 
-void mainMenu2(Graph<City> graph, vector<City> cities,int opt) {
+void mainMenu2(Graph<City> graph, vector<City> cities) {
 	int choice = 0;
 
 	while (choice != 3) {
@@ -249,13 +233,59 @@ void mainMenu2(Graph<City> graph, vector<City> cities,int opt) {
 		case 1:
 			graph = getGraph1FromFile(cities);
 			loadGraph1PointsOfInterest(cities);
-			graph1Menu(graph, cities,opt);
+			graph1Menu(graph, cities);
 			break;
 
 		case 2:
 			graph = getGraph2FromFile(cities);
 			loadGraph2PointsOfInterest(cities);
-			graph2Menu(graph, cities,opt);
+			graph2Menu(graph, cities);
+			break;
+		case 3:
+			cout << endl;
+			break;
+		}
+	}
+}
+
+void searchMenu(Graph<City> graph, vector<City> cities) {
+	int choice = 0;
+
+	while (choice != 3) {
+		cout << "____________________________________________________" << endl;
+		cout << "|                  SEARCH MENU                     |" << endl;
+		cout << "|                                                  |" << endl;
+		cout << "|        Type your option:                         |" << endl;
+		cout << "|     1) Exact Search                              |" << endl;
+		cout << "|     2) Approximate Search                        |" << endl;
+		cout << "|     3) Back                                      |" << endl;
+		cout << "|    Option: ";
+
+		choice = checkBoundaries(1, 3);
+		City start;
+		set<City> setCities;
+		vector<City> citiesInOrder;
+		vector<string> poi;
+		vector<pair<string, string>> aproxVec;
+
+		switch (choice) {
+		case 1:
+			
+			break;
+
+		case 2:
+			start = readFirstCity(cities);
+			poi = readInputPoi();
+			setCities = POIfromFile(poi, cities, aproxVec);
+			citiesInOrder = graph.travellingSalesman(graph.makeMinTree(start, setCities));
+			filterCities(citiesInOrder);
+			printVec(citiesInOrder);
+			for (auto it = citiesInOrder.begin(); it != citiesInOrder.end(); it++)
+			{
+				cout << it->getName() << endl;
+			}
+			printPair(aproxVec);
+			//PrintGraph(graph, citiesInOrder);
 			break;
 		case 3:
 			cout << endl;
@@ -282,11 +312,13 @@ void mainMenu(Graph<City> graph, vector<City> cities) {
 
 		switch (choice) {
 		case 1:
-			mainMenu2(graph, cities,1);
+			mainMenu2(graph, cities);
 			break;
 
 		case 2:
-			mainMenu2(graph, cities, 2);
+			graph = getGraph2FromFile(cities);
+			loadGraph2PointsOfInterest(cities);
+			searchMenu(graph, cities);
 			break;
 		case 3:
 			cout << endl;
@@ -304,7 +336,7 @@ int main() {
 	Graph<City> graph;
 	vector<int> pref;
 	vector<City> cities;
-	getGraph1FromFile(cities);
+	getGraph2FromFile(cities);
 	vector<pair<string, string>> aproxVec;
 	string a;
 	vector<string> poi = { "Palacio da Bola", "Torre dos Clerigo", "Ponte D.Luis", "Torre de Bele", "Panteao Nacional","Big Ben", "Palacio Espanhol" , "Parlame", "Catedral" };

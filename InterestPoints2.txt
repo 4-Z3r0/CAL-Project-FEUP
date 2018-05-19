@@ -1,4 +1,4 @@
-Torre dos Clerigo
+Torre dos Clerigos
 Praca da Republica
 Palacio da Bolsa
 Se Catedral
@@ -14,6 +14,7 @@ Estacao de Sao Bento
 !
 Mosteiro dos Jeronimos
 Torre de Belem
+Parlamento
 Palacio Nacional da Ajuda
 Castelo de Sao Jorge
 Elevador de Santa Justa
@@ -23,10 +24,17 @@ Panteao Nacional
 Igreja de Sao Roque´
 !
 Madrid Monumento Teste
+Palacio Espanhol
 !
 Barcelona Monumento Teste
+Estadio Futebol
 !
 Londres Monumento Teste
+Big Ben
+BigBen
+TopBig Ben
+London Eye
+Parlament
 !
 Frankfurt Monumento Teste
 !
@@ -35,7 +43,10 @@ Oslo Monumento Teste
 Helsinki Monumento Teste
 !
 Roma Monumento Teste
+Coliseu
+Catedral
 !
 Monaco Monumento Teste
 !
 Kiev Monumento Teste
+Grandes Portas de Kiev

@@ -256,7 +256,7 @@ set<City> POIfromFile(vector<string> poi, vector<City> const &cities, vector<pai
 
 	aproxRes.empty();
 
-	g1.open("InterestPoints1.txt");
+	g1.open("InterestPoints2.txt");
 
 	if (g1.is_open())
 	{
@@ -300,4 +300,38 @@ void printPair(vector<pair<string, string>> vecP)
 	{
 		cout << vecP.at(i).first << " : " << vecP.at(i).second << endl;
 	}
+}
+
+vector<string> readInputPoi() {
+	vector<string> poi;
+	string answer;
+	while (answer != "0") {
+		cout << "What other Point of Interest would you like to visit? (0 to stop) \n";
+		answer = checkString(answer);
+		if (answer != "0")
+		{
+			poi.push_back(answer);
+		}
+	
+	}
+	return poi;
+
+}
+
+City readFirstCity(vector<City> &cities) {
+	string answer;
+	vector<string> poi;
+	vector<pair<string, string>> aproxVec;
+	set<City> setCities;
+
+	cout << "What is the first destination you would like to visit? \n";
+	cin.ignore(1000, '\n');
+	answer = checkString(answer);
+	poi.push_back(answer);
+
+	setCities = POIfromFile(poi, cities, aproxVec);
+
+	set<City>::iterator it = setCities.begin();
+	return *it;
+
 }

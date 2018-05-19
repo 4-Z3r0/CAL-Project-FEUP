@@ -242,7 +242,13 @@ void filterCities(vector<City> &cities) {
 	}
 }
 
-//Checks the file for exact occurences of a point of interest returns the city where it is present.
+/* 
+*@brief Checks the file for the list of points of interest(poi) given as argument
+*@param poi points of interest the user wants to visit
+*@param cities Cities available for visit
+*@param aproxRes vector where the poi given and the aproximates solutions will be stored in pairs
+*@return the set of cities where there were found one or more poi
+*/
 set<City> POIfromFile(vector<string> poi, vector<City> const &cities, vector<pair<string, string>> &aproxRes)
 {
 	ifstream g1;
@@ -293,7 +299,10 @@ set<City> POIfromFile(vector<string> poi, vector<City> const &cities, vector<pai
 	return vecRet;
 }
 
-
+/*
+*@brief prints de contents of a vector of pairs (first : second)
+*@param vecP the vector of pairs whose contents will be printed.
+*/
 void printPair(vector<pair<string, string>> vecP)
 {
 	for (size_t i = 0; i < vecP.size(); i++)

@@ -275,6 +275,7 @@ void searchMenu(Graph<City> graph, vector<City> cities) {
 				poi = readInputPoi();
 				setCities = exactPOIFromFile(poi, cities);
 			} while (setCities.empty());
+			removeStartCity(start, setCities);
 			citiesInOrder = graph.travellingSalesman(graph.makeMinTree(start, setCities));
 			filterCities(citiesInOrder);
 			printVec(citiesInOrder);
@@ -302,6 +303,7 @@ void searchMenu(Graph<City> graph, vector<City> cities) {
 			for (unsigned int i = 0; i < tempCities.size(); i++) {
 				setCities.insert(tempCities.at(i));
 			}
+			removeStartCity(start, setCities);
 			citiesInOrder = graph.travellingSalesman(graph.makeMinTree(start, setCities));
 			filterCities(citiesInOrder);
 			printVec(citiesInOrder);

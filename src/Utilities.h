@@ -432,3 +432,13 @@ City readFirstCity(vector<City> &cities) {
 	return *it;
 
 }
+
+void removeStartCity(City start, set<City> &setCities) {
+	for (set<City>::iterator it = setCities.begin(); it != setCities.end(); it++) {
+		if (it->getName() == start.getName()) {
+			setCities.erase(it);
+			return;
+		}
+		
+	}
+}

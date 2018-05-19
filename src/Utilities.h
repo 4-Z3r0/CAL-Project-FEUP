@@ -340,7 +340,8 @@ set<City> exactPOIFromFile(vector<string> poi, vector<City> & cities)
 	{
 		while (getline(g1, s))
 		{
-			if (s == "!") {
+			if (s == "!") 
+			{
 				for (size_t i = 0; i < poi.size(); i++)
 				{
 					if (kmpMatcher(text, poi.at(i)) > 0)
@@ -356,6 +357,8 @@ set<City> exactPOIFromFile(vector<string> poi, vector<City> & cities)
 				text.clear();
 				index++;
 			}
+			text.append(s);
+			text.append(" ");
 		}
 	}
 	if (count != 0)

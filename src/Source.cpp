@@ -270,7 +270,14 @@ void searchMenu(Graph<City> graph, vector<City> cities) {
 
 		switch (choice) {
 		case 1:
-
+			start = readFirstCity(cities);
+			do {
+				poi = readInputPoi();
+				setCities = exactPOIFromFile(poi, cities);
+			} while (setCities.empty());
+			citiesInOrder = graph.travellingSalesman(graph.makeMinTree(start, setCities));
+			filterCities(citiesInOrder);
+			printVec(citiesInOrder);
 			break;
 
 		case 2:

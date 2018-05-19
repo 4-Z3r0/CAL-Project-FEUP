@@ -4,6 +4,7 @@
 #include "SSearch.h"
 #include<fstream>
 #include<cmath>
+#include<set>
 
 using namespace std;
 
@@ -68,12 +69,12 @@ Graph<City> makeCGraphFromVertices(vector<City> vertices, vector<Trip> trips)
 	}
 	return graph;
 }
-void printStaysRoute(vector<Stay> stays,Stay firstValidStay) {
+void printStaysRoute(vector<Stay> stays, Stay firstValidStay) {
 	bool firstStay = false;
 	for (unsigned int i = 0; i < stays.size() - 1; i++) {
 		if (stays.at(i).getCity() != firstValidStay.getCity()) {
 			if (!firstStay) {
-				cout << "Leave " << stays.at(i -1).getCity() << " on " << stays.at(i-1).getDate() << endl;
+				cout << "Leave " << stays.at(i - 1).getCity() << " on " << stays.at(i - 1).getDate() << endl;
 				firstStay = true;
 			}
 			cout << "On " << stays.at(i).getDate() << " stay in " << stays.at(i).getCity() << " for the cost of " << stays.at(i).getPrice() << endl;
@@ -142,7 +143,7 @@ void getCheapestStays(vector<City> cities, Date start, Date end) {
 	}
 	graph.dijkstraShortestPath(firstValidStay);
 	vector<Stay> stays = graph.getPath(firstValidStay, EndOfJourney);
-	printStaysRoute(stays,firstValidStay);
+	printStaysRoute(stays, firstValidStay);
 
 }
 
@@ -165,7 +166,7 @@ void printVec(vector<City> v)
 		if (v.at(i).getName() != "NULLCITY") {
 			cout << " --> " << v.at(i);
 		}
-		
+
 	}
 }
 
@@ -196,7 +197,7 @@ City getOrigin(Graph <City> const graph, vector<City> const cities) {
 City getArrival(Graph <City> const graph, vector<City> const cities) {
 	string cityname;
 	cout << "Name of the City you want to travel to: " << endl;
-		cityname = checkString(cityname);
+	cityname = checkString(cityname);
 	City city = findCity(cities, cityname);
 	return city;
 
@@ -234,7 +235,7 @@ Date getEndDate() {
 	return Date(input);
 }
 void filterCities(vector<City> &cities) {
-	for (unsigned int i = 0; i < cities.size();i++) {
+	for (unsigned int i = 0; i < cities.size(); i++) {
 		if (cities.at(i).getName() == "NULLCITY") {
 			cities.erase(cities.begin() + i);
 		}
@@ -242,64 +243,61 @@ void filterCities(vector<City> &cities) {
 }
 
 //Checks the file for exact occurences of a point of interest returns the city where it is present.
-City POIfromFile(string poi, vector<City> &cities)
+set<City> POIfromFile(vector<string> poi, vector<City> const &cities, vector<pair<string, string>> &aproxRes)
 {
 	ifstream g1;
 	string s;
-	City c1;
+
 	string text = "";
-	string aprox = "";
-	string resp;
 	int min = 4;
 	int index = 0;
+	set<City> vecRet;
+	bool flag = false;
+
+	aproxRes.empty();
+
 	g1.open("InterestPoints1.txt");
+
 	if (g1.is_open())
 	{
-		while (1)
+		for (size_t i = 0; i < poi.size(); i++)
 		{
 			while (getline(g1, s))
 			{
-				if (EditDistance(poi, s) < min)
-				{
-					min = EditDistance(poi, s);
-					aprox = s;
-				}
+			
+				if (EditDistance(poi.at(i), s) < min && EditDistance(poi.at(i), s) != 0 && s != "!")
+					aproxRes.push_back(pair<string, string>(poi.at(i), s));
+				if (EditDistance(poi.at(i), s) == 0)
+					flag = true;
 
 				if (s == "!") {
-					if (kmpMatcher(text, poi) > 0)
+					if (kmpMatcher(text, poi.at(i)) > 0 && flag)
 					{
-						g1.close();
-						return cities.at(index);
+						if (vecRet.find(cities.at(index)) == vecRet.end())
+							vecRet.emplace(cities.at(index));
 					}
 					text.clear();
 					index++;
+					flag = false;
 				}
 				text.append(s);
 				text.append(" ");
 			}
-			if (aprox != "")
-			{
-				cout << "Did you mean " << aprox << " ?(y/n)" << endl;
-				cin >> resp;
-				if (resp == "y")
-				{
-					g1.clear();
-					g1.seekg(0, ios::beg);
-					text.clear();
-					poi = aprox;
-					index = 0;
-				}
-				else if (resp == "n")
-				{
-					cout << "Point of interest given does not exist. \n";
-					return c1;
-				}
-			}
+			g1.clear();
+			g1.seekg(0, ios::beg);
+			index = 0;
 		}
-		
 	}
-	return c1;
+	g1.close();
 
+	return vecRet;
 }
 
 
+void printPair(vector<pair<string, string>> vecP)
+{
+	for (size_t i = 0; i < vecP.size(); i++)
+	{
+		cout << vecP.at(i).first << " : " << vecP.at(i).second << endl;
+	}
+}

@@ -303,16 +303,24 @@ int main() {
 	
 	Graph<City> graph;
 	vector<int> pref;
-	vector<City> cities = {City("Porto") , City("Lisboa"), City("Madrid"), City("Barcelona") };
-
+	vector<City> cities;
+	getGraph1FromFile(cities);
+	vector<pair<string, string>> aproxVec;
 	string a;
+	vector<string> poi = { "Palacio da Bola", "Torre dos Clerigo", "Ponte D.Luis", "Torre de Bele", "Panteao Nacional","Big Ben", "Palacio Espanhol" , "Parlame", "Catedral" };
+	set<City> res;
 	/*string t = "aabababaabaabababababababaaaaaaaaaabbbabab";
 	string p = "aaba";
 	cout << kmpMatcher(t, p) << endl;
 	*/
-	cout << POIfromFile("Livraria Lelo", cities).getName() << endl;
-	cin >> a;
-
+	res = POIfromFile(poi, cities, aproxVec);
+	for (auto it = res.begin(); it != res.end(); it++)
+	{
+		cout << it->getName() << endl;
+	}
+	printPair(aproxVec);
+	system("pause");
+	
 	//mainMenu(graph,cities);
 
 

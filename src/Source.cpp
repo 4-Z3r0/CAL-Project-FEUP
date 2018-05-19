@@ -278,7 +278,7 @@ void searchMenu(Graph<City> graph, vector<City> cities) {
 			citiesInOrder = graph.travellingSalesman(graph.makeMinTree(start, setCities));
 			filterCities(citiesInOrder);
 			printVec(citiesInOrder);
-			break;
+			return;
 
 		case 2:
 			start = readFirstCity(cities);

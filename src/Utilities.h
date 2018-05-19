@@ -318,7 +318,60 @@ set<City> POIfromFile(vector<string> poi, vector<City> const &cities, vector<pai
 	return vecRet;
 }
 
+/*
+*@brief Checks the file for the list of points of interest(poi) given as argument
+*@param poi points of interest the user wants to visit
+*@param cities Cities available for visit
+*@return the set of cities where there were found one or more poi
+*/
+set<City> exactPOIFromFile(vector<string> poi, vector<City> & cities)
+{
+	ifstream g1;
+	string s;
 
+	string text = "";
+	int index = 0;
+	set<City> vecRet;
+	set<string> poiAdded;
+	int count = poi.size();
+	g1.open("InterestPoints2.txt");
+
+	if (g1.is_open())
+	{
+		while (getline(g1, s))
+		{
+			if (s == "!") {
+				for (size_t i = 0; i < poi.size(); i++)
+				{
+					if (kmpMatcher(text, poi.at(i)) > 0)
+					{
+						if (vecRet.find(cities.at(index)) == vecRet.end())
+						{
+							vecRet.emplace(cities.at(index));
+							poiAdded.emplace(poi.at(i));
+							count--;
+						}
+					}
+				}
+				text.clear();
+				index++;
+			}
+		}
+	}
+	if (count != 0)
+	{
+		cout << "Some of the points of interest given were not found.\nThe route will be traced with the following points of interest: \n";
+		for (auto it = poiAdded.begin(); it != poiAdded.end(); it++)
+		{
+			cout << *it << endl;
+		}
+	}
+	else
+		cout << "All points of interest were found.\n The route will be traced with all points of interest given. \n";
+
+	g1.close();
+	return vecRet;
+}
 
 /*
 *@brief prints de contents of a vector of pairs (first : second)

@@ -7,10 +7,6 @@ using namespace std;
 
 
 
-void UI()
-{
-
-}
 
 void map(vector<City> m) {
 	GraphViewer *j = new GraphViewer(3000, 3000, false);

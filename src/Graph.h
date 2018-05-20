@@ -112,7 +112,7 @@ Edge<T>::Edge(Vertex<T> *d, double w) : dest(d), weight(w) {}
 
 template<class T>
 class Graph {
-	vector<Vertex<T> *> vertexSet;    // vertex set
+	vector<Vertex<T> *> vertexSet;   
 
 public:
 	Vertex<T> *findVertex(const T &in) const;
@@ -140,7 +140,7 @@ public:
 	friend ostream& operator<< (ostream& out, Graph<T>& graph);
 
 
-	// Fp05 - all pairs
+	
 	void floydWarshallShortestPath();
 	vector<T> getfloydWarshallPath(const T &origin, const T &dest) const;
 
@@ -268,7 +268,7 @@ template<class T>
 vector<T> Graph<T>::getPath(const T &origin, const T &dest) const {
 	vector<T> res;
 	auto v = findVertex(dest);
-	if (v == nullptr || v->dist == INF) // missing or disconnected
+	if (v == nullptr || v->dist == INF)
 		return res;
 	for (; v != nullptr; v = v->path)
 		res.push_back(v->info);
@@ -276,34 +276,11 @@ vector<T> Graph<T>::getPath(const T &origin, const T &dest) const {
 	return res;
 }
 
-template<class T>
-void Graph<T>::unweightedShortestPath(const T &orig) {
-	// TODO
-}
-
-template<class T>
-void Graph<T>::bellmanFordShortestPath(const T &orig) {
-	// TODO
-}
 
 
-/**************** All Pairs Shortest Path  ***************/
-
-template<class T>
-void Graph<T>::floydWarshallShortestPath() {
-	// TODO
-}
-
-template<class T>
-vector<T> Graph<T>::getfloydWarshallPath(const T &orig, const T &dest) const {
-	vector<T> res;
-	// TODO
-	return res;
-}
 
 
 //returns the closest Vertex to source not included in the BT
-//WILL ONLY WORK WITH CITY
 template <class T>
 T Graph<T>::findClosestNotTree(const T &source , set<T> &cities)
 {

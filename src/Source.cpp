@@ -184,7 +184,6 @@ void graph2Menu(Graph<City> graph, vector<City> cities) {
 			filterCities(citiesInOrder);
 			printVec(citiesInOrder);
 			PrintGraph(graph, citiesInOrder);
-			//map(citiesInOrder);
 			return;
 
 		case 2:
@@ -307,10 +306,6 @@ void searchMenu(Graph<City> graph, vector<City> cities) {
 			citiesInOrder = graph.travellingSalesman(graph.makeMinTree(start, setCities));
 			filterCities(citiesInOrder);
 			printVec(citiesInOrder);
-			for (auto it = citiesInOrder.begin(); it != citiesInOrder.end(); it++)
-			{
-				cout << it->getName() << endl;
-			}
 			PrintGraph(graph, citiesInOrder);
 			return;
 		case 3:
@@ -363,33 +358,5 @@ int main() {
 	vector<int> pref;
 	vector<City> cities;
 	getGraph2FromFile(cities);
-	/*
-	vector<pair<string, string>> aproxVec;
-	string a;
-	vector<string> poi = { "Palacio da Bola", "Torre dos Clerigo", "Ponte D.Luis", "Torre de Bele", "Panteao Nacional","Big Ben", "Palacio Espanhol" , "Parlame", "Catedral" };
-	set<City> res;
-	/*string t = "aabababaabaabababababababaaaaaaaaaabbbabab";
-	string p = "aaba";
-	cout << kmpMatcher(t, p) << endl;
-
-	res = POIfromFile(poi, cities, aproxVec);
-	for (auto it = res.begin(); it != res.end(); it++)
-	{
-		cout << it->getName() << endl;
-	}
-	printPair(aproxVec);
-	system("pause");
-	*/
 	mainMenu(graph, cities);
-
-
-	/*set<City> setCities = { findCity(cities,"Madrid"),findCity(cities,"Lisboa"),findCity(cities,"Londres"),findCity(cities,"Barcelona") };
-	//vector<City> c2 = graph.travellingSalesman(graph.makeMinTree(findCity(cities, "Porto"), setCities));
-	cout << graph << endl;
-	printVec<City>(cities);
-	vector<City> c2 = { findCity(cities,"Madrid"),findCity(cities,"Lisboa"),findCity(cities,"Londres"),findCity(cities,"Barcelona") };
-	getCheapestStays(c2, Date(2018, 4, 8), Date(2018, 4, 15));*/
-
-
-
 }

@@ -89,7 +89,6 @@ void getCheapestStays(vector<City> cities, Date start, Date end) {
 	int visitDay = 0;
 	Stay firstValidStay;
 	bool firstValid = false;
-	//Adding all the Vertex to the graph that can be reached
 	for (unsigned int i = 0; i < cities.size(); i++) {
 		vector<Stay> stays = cities.at(i).getStays();
 		unsigned int unreachableDays = visitDay;
@@ -114,7 +113,6 @@ void getCheapestStays(vector<City> cities, Date start, Date end) {
 	Stay EndOfJourney(end, "EndOfJourney", 0);
 	graph.addVertex(EndOfJourney);
 	visitDay = 0;
-	//Adding all the Edges between the Vertex's that represent the cost of stay
 	for (unsigned int i = 0; i < cities.size(); i++) {
 		vector<Stay> stays = cities.at(i).getStays();
 		unsigned int unreachableDays = visitDay;
@@ -286,7 +284,7 @@ set<City> POIfromFile(vector<string> poi, vector<City> const &cities, vector<pai
 			while (getline(g1, s))
 			{
 			
-				if (EditDistance(poi.at(i), s) < min && EditDistance(poi.at(i), s) != 0 && s != "!")
+				if (EditDistance(poi.at(i), s) <= min && EditDistance(poi.at(i), s) != 0 && s != "!")
 					aproxRes.push_back(pair<string, string>(poi.at(i), s));
 				if (EditDistance(poi.at(i), s) == 0)
 					flag = true;

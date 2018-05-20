@@ -36,7 +36,6 @@ Date::Date(string date) {
 
 }
 
-/* get methods */
 unsigned int Date::getYear() const {
 	return year;
 }
@@ -67,8 +66,6 @@ string Date::to_DateString(unsigned int date) const {
 
 }
 
-
-/* set methods */
 void Date::setDate(unsigned int year, unsigned int month, unsigned int day) {
 
 	if (month < 1 || month > 12 || day < 1 || day > 31)

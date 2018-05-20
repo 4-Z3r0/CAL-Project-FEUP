@@ -84,7 +84,7 @@ int kmpMatcher(std::string text, std::string pattern) {
 	return count;
 }
 
-//No optimization yet implemented.
+
 /*
 *@brief Returns the edit distance between two strings.
 *@param pattern one of the strings to compare

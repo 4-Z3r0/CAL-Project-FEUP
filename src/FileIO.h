@@ -151,8 +151,8 @@ void loadGraph2PointsOfInterest(vector<City> &cities) {
 				idx++;
 			}
 			temp = InterestPoint(s);
-			cities.at(idx).addInterestPoint(temp);
-
+			if(!g1.eof())
+				cities.at(idx).addInterestPoint(temp);
 		}
 		g1.close();
 

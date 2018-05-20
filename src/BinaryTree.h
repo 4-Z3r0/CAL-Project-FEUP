@@ -155,7 +155,6 @@ void BinaryTree<T>::outputPreorder(ostream &out, const BTNode<T> *r) const
 	out << ')';
 }
 
-// Para usar o operador <<
 template <class T>
 ostream &operator<<(ostream &out, const BinaryTree<T> &t)
 {
@@ -163,8 +162,6 @@ ostream &operator<<(ostream &out, const BinaryTree<T> &t)
 	return out;
 }
 
-
-// Iteradores
 
 template <class T>
 class BTItrPost {
@@ -220,9 +217,6 @@ void BTItrPost<T>::slideDown(BTNode<T> *n)
 		}
 	}
 }
-
-
-/////////////////////
 
 template <class T>
 class BTItrPre {

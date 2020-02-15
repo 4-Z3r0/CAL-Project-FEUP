@@ -2,7 +2,7 @@
 
 A project for the CAL course (Conceção e Análise de Algoritmos // Algorithms Analysis and Conception).  
 The project theme is the implementation of a simple travel agency program (project theme 2).  
-CAL is a 2nd year and 2nd semester course (more info about the course here:  
+CAL is a 2nd year, 2nd semester course (more info about the course here:  
 https://sigarra.up.pt/feup/en/ucurr_geral.ficha_uc_view?pv_ocorrencia_id=399894)
 
 The project consists on a CLI where the user selects a destination or a list of places to visit and the program will present the cheapest path.
